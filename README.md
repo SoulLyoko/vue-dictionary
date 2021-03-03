@@ -49,7 +49,7 @@ new Vue({
 
 ## 示例
 
-![example](public/example.png)
+![example](./public/example.png)
 
 <details>
 
@@ -152,11 +152,3 @@ new Vue({
 | name    | 说明                                                                                                        |
 | ------- | ----------------------------------------------------------------------------------------------------------- |
 | default | 使用默认插槽时将不再根据 type 渲染组件，插槽暴露 options 属性：`<template #default="{options}"></template>` |
-
-```
-
-```
-
-```
-
-```
