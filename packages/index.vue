@@ -10,23 +10,9 @@ const defaultOption = {
   value: "value",
   children: "children",
   request: null,
-  res: "res.data"
+  dataPath: "res.data"
 };
 
-/**
- * @component 字典组件,支持el-select,el-radio,el-checkbox,el-cascader的所有属性
- * @desc 先在字典表中添加字典和数据,该组件已注册为全局组件,无需重复引用,使用 window.Dict[code] 可获取到字典项
- * @desc el-cascader中，props的emitPath已被强制设置成false
- * @desc slot插槽 #default="{options}"
- * @prop {string} code 请求字典接口的字典代码
- * @prop {string} type select下拉选择,cascader级联,radio单选框,radio-button按钮单选框,checkbox多选框,checkbox-button按钮多选框,text文字
- * @prop {string} join transform=true时对数组拼接成字符串的符号。type="text"时,数组拼接成字符串的符号
- * @prop {string} split transform=true时对字符串分割成数组的符号
- * @prop {array} dictData 自定义字典数据，当传入时，将不发code请求，字典格式：[{label:"",value:""}]
- * @prop {array} dictOption 字典配置
- * @prop {boolean} transform 多选时是否进行数据值的转换，只有multiple=true时生效，使用join和split的符号进行拼接和分割
- * @slot default 使用默认插槽时将不再根据type渲染组件，插槽暴露options属性：<template #default="{options}"></template>
- */
 export default {
   name: "v-dict",
   components,
@@ -36,11 +22,12 @@ export default {
       default: () => ({})
     },
     dictData: Array,
-    code: String,
     type: {
       type: String,
       default: "select"
     },
+    code: String,
+    transform: Boolean,
     join: {
       type: String,
       default: ","
@@ -48,8 +35,7 @@ export default {
     split: {
       type: String,
       default: ","
-    },
-    transform: Boolean
+    }
   },
   data() {
     return {

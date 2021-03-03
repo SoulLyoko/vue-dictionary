@@ -18,6 +18,8 @@ yarn add vue-dictionary
 
 ## 快速上手
 
+- 可以在全局引入时传入字典配置，也可以在使用组件时传入单独的字典配置
+
 ### 全局引入
 
 ```js
@@ -152,3 +154,13 @@ new Vue({
 | name    | 说明                                                                                                        |
 | ------- | ----------------------------------------------------------------------------------------------------------- |
 | default | 使用默认插槽时将不再根据 type 渲染组件，插槽暴露 options 属性：`<template #default="{options}"></template>` |
+
+## DictOption
+
+| 参数     | 说明               | 类型    | 可选值 | 默认值   |
+| -------- | ------------------ | ------- | ------ | -------- |
+| label    | 字典的名称属性值   | String  | -      | label    |
+| value    | 字典的值属性值     | String  | -      | value    |
+| children | 字典的子属性值     | String  | -      | children |
+| request  | 字典的请求函数     | Promise | -      | null     |
+| dataPath | 请求返回的数据格式 | String  | -      | res.data |
