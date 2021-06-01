@@ -21,8 +21,13 @@
       <v-dict v-model="dictValue" code="1" type="text"></v-dict>
     </div>
     <div>
+      <div class="label">getLabel:</div>
+      <button @click="getLabel">{{ label }}</button>
+    </div>
+    <div>
       <div class="label">use dictData:</div>
       <v-dict
+        ref="sexdict"
         v-model="customValue"
         type="radio"
         :dictData="dictData"
@@ -59,8 +64,15 @@ export default {
           label: "女",
           value: 0
         }
-      ]
+      ],
+      label: "label"
     };
+  },
+  methods: {
+    getLabel() {
+      console.log(11);
+      this.label = this.$refs.sexdict.getLabel(1);
+    }
   }
 };
 </script>

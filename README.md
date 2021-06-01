@@ -164,3 +164,10 @@ new Vue({
 | children | 字典的子属性值     | String  | -      | children |
 | request  | 字典的请求函数     | Promise | -      | null     |
 | dataPath | 请求返回的数据格式 | String  | -      | res.data |
+
+## Method
+
+| name     | 说明     | 参数                                                                   |
+| -------- | -------- | ---------------------------------------------------------------------- |
+| getLabel | 获取标题 | (value:String//值, options:Array//字典数组, join:String = ","//分隔符) |
+| flatTree | 树扁平化 | (tree:Array//树数组, childrenKey:String = "children"//树子数组的key)        |

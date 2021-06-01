@@ -1,4 +1,6 @@
 <script>
+import { getLabel } from "./util";
+
 const files = require.context("./components", false, /\.vue$/);
 const components = {};
 files.keys().forEach(key => {
@@ -134,6 +136,11 @@ export default {
         .finally(() => {
           window.DictRequesting = false;
         });
+    },
+    getLabel() {
+      const { value } = this.$attrs;
+      const { join, options } = this;
+      return getLabel(value, options, join);
     }
   }
 };
