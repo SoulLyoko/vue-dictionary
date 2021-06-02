@@ -122,6 +122,7 @@ export default {
       }
       window.DictRequesting = true;
       request?.(this.code)
+        // eslint-disable-next-line no-unused-vars
         .then(res => {
           this.options = this.formatData(eval(dataPath));
           let dict = window.Dict || {};
