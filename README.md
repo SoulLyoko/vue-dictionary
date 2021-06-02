@@ -54,7 +54,7 @@ new Vue({
 ## 示例
 
 - [演示](https://soullyoko.github.io/vue-dictionary/)
-- ![example](https://github.com/SoulLyoko/vue-dictionary/blob/master/public/example.png?raw=true)
+  ![example](https://github.com/SoulLyoko/vue-dictionary/blob/master/example.png?raw=true)
 
 <details>
 
