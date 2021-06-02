@@ -5,7 +5,7 @@
       <v-dict v-model="dictValue" type="select" code="1"></v-dict>
     </div>
     <div>
-      <div class="label">select multiple:</div>
+      <div class="label">multiple select:</div>
       <v-dict v-model="dictArr" type="select" code="1" multiple style="width:500px"></v-dict>
     </div>
     <div>
@@ -17,12 +17,19 @@
       <v-dict v-model="dictArr" code="1" type="checkbox"></v-dict>
     </div>
     <div>
-      <div class="label">text:</div>
-      <v-dict v-model="dictValue" code="1" type="text"></v-dict>
+      <div class="label">cascader:</div>
+      <v-dict
+        v-model="cascaderValue"
+        type="cascader"
+        :props="{ checkStrictly: true }"
+        :show-all-levels="false"
+        :dictData="cascaderDict"
+        :dictOption="{ label: 'label', value: 'value' }"
+      ></v-dict>
     </div>
     <div>
-      <div class="label">getLabel:</div>
-      <button @click="getLabel">{{ label }}</button>
+      <div class="label">text:</div>
+      <v-dict v-model="dictValue" code="1" type="text"></v-dict>
     </div>
     <div>
       <div class="label">use dictData:</div>
@@ -30,9 +37,13 @@
         ref="sexdict"
         v-model="customValue"
         type="radio"
-        :dictData="dictData"
+        :dictData="customDict"
         :dictOption="{ label: 'label', value: 'value' }"
       ></v-dict>
+    </div>
+    <div>
+      <div class="label">getLabel():</div>
+      <button @click="getLabel">{{ label }}</button>
     </div>
     <div>
       <div class="label">slot:</div>
@@ -54,23 +65,37 @@ export default {
     return {
       dictValue: 1,
       dictArr: [1, 2],
+      cascaderValue: "1-1",
       customValue: 1,
-      dictData: [
+      customDict: [
+        { label: "男", value: 1 },
+        { label: "女", value: 0 }
+      ],
+      cascaderDict: [
         {
-          label: "男",
-          value: 1
+          label: "level1",
+          value: "1",
+          children: [
+            { label: "level1-1", value: "1-1" },
+            { label: "level1-2", value: "1-2" },
+            { label: "level1-3", value: "1-3" }
+          ]
         },
         {
-          label: "女",
-          value: 0
+          label: "level2",
+          value: "2",
+          children: [
+            { label: "level2-1", value: "2-1" },
+            { label: "level2-2", value: "2-2" },
+            { label: "level2-3", value: "2-3" }
+          ]
         }
       ],
-      label: "label"
+      label: "Click To Get Label"
     };
   },
   methods: {
     getLabel() {
-      console.log(11);
       this.label = this.$refs.sexdict.getLabel(1);
     }
   }

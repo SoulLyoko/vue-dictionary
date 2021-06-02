@@ -18,9 +18,11 @@ yarn add vue-dictionary
 
 ## 快速上手
 
-- 可以在全局引入时传入字典配置，也可以在使用组件时传入单独的字典配置
+- 可以在全局引入时传入字典配置，也可以在使用组件时传入单独的字典配置来覆盖全局配置
 
 ### 全局引入
+
+- 组件基于 element-ui，需要先引入 element 组件库
 
 ```js
 import Vue from "vue";
@@ -51,7 +53,8 @@ new Vue({
 
 ## 示例
 
-![example](./public/example.png)
+- [演示](https://soullyoko.github.io/vue-dictionary/)
+- ![example](https://github.com/SoulLyoko/vue-dictionary/blob/master/public/example.png?raw=true)
 
 <details>
 
@@ -65,7 +68,7 @@ new Vue({
       <v-dict v-model="dictValue" type="select" code="1"></v-dict>
     </div>
     <div>
-      <div class="label">select multiple:</div>
+      <div class="label">multiple select:</div>
       <v-dict v-model="dictArr" type="select" code="1" multiple style="width:500px"></v-dict>
     </div>
     <div>
@@ -77,17 +80,33 @@ new Vue({
       <v-dict v-model="dictArr" code="1" type="checkbox"></v-dict>
     </div>
     <div>
+      <div class="label">cascader:</div>
+      <v-dict
+        v-model="cascaderValue"
+        type="cascader"
+        :props="{ checkStrictly: true }"
+        :show-all-levels="false"
+        :dictData="cascaderDict"
+        :dictOption="{ label: 'label', value: 'value' }"
+      ></v-dict>
+    </div>
+    <div>
       <div class="label">text:</div>
       <v-dict v-model="dictValue" code="1" type="text"></v-dict>
     </div>
     <div>
       <div class="label">use dictData:</div>
       <v-dict
+        ref="sexdict"
         v-model="customValue"
         type="radio"
-        :dictData="dictData"
+        :dictData="customDict"
         :dictOption="{ label: 'label', value: 'value' }"
       ></v-dict>
+    </div>
+    <div>
+      <div class="label">getLabel():</div>
+      <button @click="getLabel">{{ label }}</button>
     </div>
     <div>
       <div class="label">slot:</div>
@@ -109,21 +128,55 @@ new Vue({
       return {
         dictValue: 1,
         dictArr: [1, 2],
+        cascaderValue: "1-1",
         customValue: 1,
-        dictData: [
+        customDict: [
+          { label: "男", value: 1 },
+          { label: "女", value: 0 }
+        ],
+        cascaderDict: [
           {
-            label: "男",
-            value: 1
+            label: "level1",
+            value: "1",
+            children: [
+              { label: "level1-1", value: "1-1" },
+              { label: "level1-2", value: "1-2" },
+              { label: "level1-3", value: "1-3" }
+            ]
           },
           {
-            label: "女",
-            value: 0
+            label: "level2",
+            value: "2",
+            children: [
+              { label: "level2-1", value: "2-1" },
+              { label: "level2-2", value: "2-2" },
+              { label: "level2-3", value: "2-3" }
+            ]
           }
-        ]
+        ],
+        label: "Click To Get Label"
       };
+    },
+    methods: {
+      getLabel() {
+        this.label = this.$refs.sexdict.getLabel(1);
+      }
     }
   };
 </script>
+
+<style>
+  #app {
+    width: 1200px;
+    margin: 100px auto;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .label {
+    color: green;
+  }
+</style>
 ```
 
 </details>
@@ -131,7 +184,7 @@ new Vue({
 ## Props
 
 - 除了 element 的 select/cascader/radio/checkbox 组件的所有属性外，还增加了以下属性
-- el-cascader 中，props 的 emitPath 已被强制设置成 false
+- type=cascader 中，props 的 emitPath 已被强制设置成 false，所以每个节点必须设置唯一的 key
 
 | 参数       | 说明                                                                                           | 类型   | 可选值     | 默认值 |
 | ---------- | ---------------------------------------------------------------------------------------------- | ------ | ---------- | ------ |
@@ -140,8 +193,8 @@ new Vue({
 | code       | 发送请求的字典代码                                                                             | String | -          | -      |
 | type       | select 下拉选择,cascader 级联,radio(-button) 单选框,checkbox(-button) 多选框,text 文字         | String | -          | select |
 | transform  | 多选时是否进行数据值的转换，只有 multiple=true 时生效，使用 join 和 split 的符号进行拼接和分割 | Bolean | true/false | false  |
-| join       | transform=true 时对数组拼接成字符串的符号。type="text"时,数组拼接成字符串的符号                | String | -          | ","    |
-| split      | transform=true 时对字符串分割成数组的符号                                                      | String | -          | ","    |
+| join       | transform=true 时数组拼接成字符串的符号。type="text"时,数组拼接成字符串的符号                  | String | -          | ","    |
+| split      | transform=true 时字符串分割成数组的符号                                                        | String | -          | ","    |
 
 ## Events
 
@@ -170,4 +223,4 @@ new Vue({
 | name     | 说明     | 参数                                                                   |
 | -------- | -------- | ---------------------------------------------------------------------- |
 | getLabel | 获取标题 | (value:String//值, options:Array//字典数组, join:String = ","//分隔符) |
-| flatTree | 树扁平化 | (tree:Array//树数组, childrenKey:String = "children"//树子数组的key)        |
+| flatTree | 树扁平化 | (tree:Array//树数组, childrenKey:String = "children"//树子数组的 key)  |

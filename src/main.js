@@ -7,8 +7,8 @@ import VDict from "../packages/index.js";
 
 Vue.config.productionTip = false;
 
-const getDict = type => {
-  return axios.get("http://jsonplaceholder.typicode.com/posts/" + type + "/comments");
+const getDict = code => {
+  return axios.get("http://jsonplaceholder.typicode.com/posts/" + code + "/comments");
 };
 
 Vue.use(ElementUI);
