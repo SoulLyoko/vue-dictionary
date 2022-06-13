@@ -1,0 +1,23 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install
+        run: yarn
+
+      - name: Typecheck
+        run: yarn typecheck
+
+      - name: Test Vue3
+        run: yarn test:3
+
+      - name: Test Vue2
+        run: yarn test:2

@@ -1,0 +1,14 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["es2017", "dom"],
+    "paths": {
+      "@/*": ["src/*"],
+      "~/*": ["packages/*"],
+      "vue-dictionary": ["packages"]
+    },
+    "types": ["vitest/globals"]
+  },
+  "include": ["packages", "packages/.vitepress/**/*", "src"]
+}

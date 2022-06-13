@@ -1,53 +1,123 @@
 {
   "name": "vue-dictionary",
-  "version": "1.0.4",
-  "description": "vue-dictionary for admin-system",
-  "keywords": [
-    "vue",
-    "dict",
-    "dictionay"
-  ],
-  "author": "Lyoko <519052532@qq.com>",
-  "license": "MIT",
+  "version": "2.0.0-beta.1",
+  "upperName": "VueDictionary",
+  "description": "vue-dictionary",
+  "author": "SoulLyoko <519052532@qq.com>",
+  "repository": "https://github.com/SoulLyoko/vue-dictionary.git",
+  "homepage": "https://github.com/SoulLyoko/vue-dictionary#readme",
   "private": false,
-  "main": "lib/vue-dictionary.umd.min.js",
+  "license": "MIT",
+  "keywords": [
+    "vite",
+    "lib",
+    "starter"
+  ],
+  "files": [
+    "dist",
+    "es",
+    "lib",
+    "global.d.ts"
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "unpkg": "dist/index.js",
+  "jsdelivr": "dist/index.js",
+  "style": "dist/index.css",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./*": "./*"
+  },
   "scripts": {
-    "dev": "vue-cli-service serve",
-    "lint": "vue-cli-service lint",
-    "build": "vue-cli-service build --target lib --name vue-dictionary --dest lib packages/index.js",
-    "build:example": "vue-cli-service build"
+    "dev": "yarn switch:3 && vite",
+    "dev:2": "yarn switch:2 && vite",
+    "build": "yarn switch:3 && yarn typecheck && vite build",
+    "postbuild": "esno scripts/postbuild.ts",
+    "serve": "yarn switch:3 && vite preview",
+    "docs:dev": "yarn switch:3 && vitepress dev packages",
+    "docs:build": "yarn switch:3 && vitepress build packages",
+    "docs:serve": "yarn switch:3 && vitepress serve packages",
+    "test": "vitest",
+    "test:2": "yarn switch:2 && vitest run",
+    "test:3": "yarn switch:3 && vitest run",
+    "test:all": "yarn test:2 && yarn test:3",
+    "test:coverage": "vitest --coverage",
+    "switch:2": "esno scripts/switch.ts 2",
+    "switch:3": "esno scripts/switch.ts 3",
+    "release": "esno scripts/release.ts",
+    "typecheck": "vue-tsc --noEmit",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "ci": "yarn typecheck && yarn test:all && yarn build && yarn docs:build",
+    "prepare": "husky install",
+    "lint": "eslint --ext .ts,.vue ."
   },
-  "dependencies": {},
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.0",
-    "@vue/cli-plugin-eslint": "^4.5.0",
-    "@vue/cli-service": "^4.5.0",
-    "element-ui": "^2.15.2",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "vue": "^2.6.13",
-    "vue-template-compiler": "^2.6.13"
+  "dependencies": {
+    "eslint-plugin-import": "^2.26.0",
+    "vue-demi": "^0.13.1"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {
-      "no-unused-vars": 1
+  "peerDependencies": {
+    "@vue/composition-api": "^1.6.0",
+    "vue": "^2.6.0 || ^3.2.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
     }
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.2",
+    "@commitlint/config-conventional": "^17.0.2",
+    "@types/fs-extra": "^9.0.13",
+    "@types/gulp": "^4.0.9",
+    "@types/node": "^17.0.42",
+    "@typescript-eslint/eslint-plugin": "^5.27.1",
+    "@typescript-eslint/parser": "^5.27.1",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "@vue/compiler-sfc": "^3.2.37",
+    "@vue/composition-api": "^1.6.2",
+    "@vue/test-utils": "^2.0.0",
+    "@vue/tsconfig": "^0.1.3",
+    "c8": "^7.11.3",
+    "conventional-changelog-cli": "^2.2.2",
+    "enquirer": "^2.3.6",
+    "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^9.1.1",
+    "esno": "^0.16.3",
+    "fs-extra": "^10.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-sass": "^5.1.0",
+    "husky": "^8.0.1",
+    "jsdom": "^19.0.0",
+    "lint-staged": "^13.0.1",
+    "prettier": "^2.6.2",
+    "sass": "^1.52.3",
+    "typescript": "^4.7.3",
+    "vite": "^2.9.12",
+    "vite-plugin-vue2": "^2.0.1",
+    "vitepress": "^0.22.4",
+    "vitest": "^0.14.2",
+    "vue": "^3.2.37",
+    "vue-template-compiler": "^2.6.14",
+    "vue-tsc": "^0.37.5"
+  },
+  "lint-staged": {
+    "*.{ts,vue}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
 }

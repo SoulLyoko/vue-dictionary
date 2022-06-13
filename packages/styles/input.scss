@@ -1,0 +1,14 @@
+.v-input {
+  padding: 3px 6px;
+  font-size: 14px;
+
+  // size
+  &--small {
+    padding: 2px 4px;
+    font-size: 12px;
+  }
+  &--large {
+    padding: 4px 8px;
+    font-size: 16px;
+  }
+}

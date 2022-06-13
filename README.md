@@ -1,227 +1,99 @@
-# vue-dictionary
+<div align="center">
+<h3>VueDictionary</h3>
+<span>A template for building Vue components library</span> 
+<br>
+<a  href="https://soullyoko.github.io/vue-dictionary/">Docs</a>
+</div>
 
-## 安装
+# Directory
 
-### npm 安装
-
-```sh
-npm i vue-dictionary
-或
-yarn add vue-dictionary
+```bash
+├── .github         # github workflows
+├── .husky          # git hooks
+├── packages        # lib source
+├── scripts         # command scripts
+├── src             # dev source
 ```
 
-### cdn 使用
+# Features
 
-```html
-<script src="https://unpkg.com/vue-dictionary/lib/vue-dictionary.umd.min.js"></script>
+- Support Vue2 and Vue3 with [VueDemi](https://github.com/vueuse/vue-demi)
+- Develop and build with [Vite](https://cn.vitejs.dev/)
+- Unit Testing with [Vitest](https://cn.vitest.dev/)
+- Docs with [VitePress](https://vitejs.cn/vitepress/)
+- Auto CI, Deploy, Publish with GitHub Actions
+
+# Try it
+
+- Use this template
+- Global rename `vue-dictionary` and `VueDictionary` to your own library name.
+- Generate your github personal access token on https://github.com/settings/tokens (skip if you already have)
+- Add your github personal access token named `ACCESS_TOKEN` (or any other name, it corresponds to `.github/workflows/deploy.yml#L21` to your repo `Setting>Secrets>Actions`
+- Generate your npm access token (skip if you already have)
+- Add your npm access token named `NPM_ACCESS_TOKEN` (or any other name, it corresponds to `.github/workflows/publish.yml#L21` to your repo `Setting>Secrets>Actions`
+
+# Usage
+
+## Development
+
+### Install and run
+
+```bash
+yarn
+yarn dev
 ```
 
-## 快速上手
+### Other commands
 
-- 可以在全局引入时传入字典配置，也可以在使用组件时传入单独的字典配置来覆盖全局配置
-
-### 全局引入
-
-- 组件基于 element-ui，需要先引入 element 组件库
-
-```js
-import Vue from "vue";
-import App from "./App.vue";
-import ElementUI from "element-ui";
-import "element-ui/lib/theme-chalk/index.css";
-import VDict from "vue-dictionary";
-
-Vue.config.productionTip = false;
-
-const getDict = code => {
-  return fetch("https://jsonplaceholder.typicode.com/" + code)
-    .then(response => response.json())
-    .then(json => json.filter((e, i) => i < 5));
-};
-
-Vue.use(ElementUI);
-Vue.use(VDict, {
-  request: getDict,
-  dataPath: "res",
-  label: "title",
-  value: "id"
-});
-
-new Vue({
-  render: h => h(App)
-}).$mount("#app");
+```bash
+yarn dev # dev on vue3
+yarn dev:2 # dev on vue2
+yarn docs:dev # dev docs
+yarn test # test on vue3 in watch mode
+yarn test:2 # test on vue2 without watch
+yarn test:3 # test on vue3 without watch
+yarn test:all # test both of vue2 and vue3 without watch
+yarn test:coverage # use c8 for coverage
+yarn switch:2 # switch packages and vue-demi to vue2
+yarn switch:3 # switch packages and vue-demi to vue3
+yarn release # release by choicing a version
+yarn typecheck # run vue-tsc with noEmit
+yarn changelog # generate changelog
+yarn ci # ci
 ```
 
-## 示例
+### Support Vue2 and Vue3
 
-- [演示](https://soullyoko.github.io/vue-dictionary/index.html)
-  ![example](https://github.com/SoulLyoko/vue-dictionary/blob/master/example.png?raw=true)
+Examples: see `packages/components`
 
-<details>
+Do not use SFC(.vue) files, just use the function `h()` (encapsulated by h-demi) in `.ts` files, no jsx of course.
 
-  <summary>点击查看代码</summary>
+Don't forget to add `value,modelValue` to props options and add `input,update:modelValue` to emits options at the same time
 
-```html
-<template>
-  <div id="app">
-    <div>
-      <div class="label">select:</div>
-      <v-dict v-model="dictValue" type="select" code="todos"></v-dict>
-    </div>
-    <div>
-      <div class="label">multiple select:</div>
-      <v-dict v-model="dictArr" type="select" code="todos" multiple style="width:500px"></v-dict>
-    </div>
-    <div>
-      <div class="label">radio:</div>
-      <v-dict v-model="dictValue" type="radio" code="todos"></v-dict>
-    </div>
-    <div>
-      <div class="label">checkbox:</div>
-      <v-dict v-model="dictArr" code="todos" type="checkbox"></v-dict>
-    </div>
-    <div>
-      <div class="label">cascader:</div>
-      <v-dict
-        v-model="cascaderValue"
-        type="cascader"
-        :props="{ checkStrictly: true }"
-        :show-all-levels="false"
-        :dictData="cascaderDict"
-        :dictOption="{ label: 'label', value: 'value' }"
-      ></v-dict>
-    </div>
-    <div>
-      <div class="label">text:</div>
-      <v-dict v-model="dictValue" code="todos" type="text"></v-dict>
-    </div>
-    <div>
-      <div class="label">use dictData:</div>
-      <v-dict
-        ref="sexdict"
-        v-model="customValue"
-        type="radio"
-        :dictData="customDict"
-        :dictOption="{ label: 'label', value: 'value' }"
-      ></v-dict>
-    </div>
-    <div>
-      <div class="label">getLabel():</div>
-      <button @click="getLabel">{{ label }}</button>
-    </div>
-    <div>
-      <div class="label">slot:</div>
-      <v-dict code="todos">
-        <template #default="{options}">
-          <div>
-            <div v-for="item in options" :key="item.value">{{ item.value }}.{{ item.label }}</div>
-          </div>
-        </template>
-      </v-dict>
-    </div>
-  </div>
-</template>
+## Build
 
-<script>
-  export default {
-    name: "App",
-    data() {
-      return {
-        dictValue: 1,
-        dictArr: [1, 2],
-        cascaderValue: "1-1",
-        customValue: 1,
-        customDict: [
-          { label: "男", value: 1 },
-          { label: "女", value: 0 }
-        ],
-        cascaderDict: [
-          {
-            label: "level1",
-            value: "1",
-            children: [
-              { label: "level1-1", value: "1-1" },
-              { label: "level1-2", value: "1-2" },
-              { label: "level1-3", value: "1-3" }
-            ]
-          },
-          {
-            label: "level2",
-            value: "2",
-            children: [
-              { label: "level2-1", value: "2-1" },
-              { label: "level2-2", value: "2-2" },
-              { label: "level2-3", value: "2-3" }
-            ]
-          }
-        ],
-        label: "Click To Get Label"
-      };
-    },
-    methods: {
-      getLabel() {
-        this.label = this.$refs.sexdict.getLabel(1);
-      }
-    }
-  };
-</script>
-
-<style>
-  #app {
-    width: 1200px;
-    margin: 100px auto;
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  .label {
-    color: green;
-  }
-</style>
+```bash
+yarn build
 ```
 
-</details>
+## Publish
 
-## Props
+Automatic publish to npm using `.github/workflows/publish.yml`, after running `yarn release` and push to origin.
 
-- 除了 element 的 select/cascader/radio/checkbox 组件的所有属性外，还增加了以下属性
-- type=cascader 中，props 的 emitPath 已被强制设置成 false，所以每个节点必须设置唯一的 key
+If you want to publish manually, remove `publish.yml` and run
 
-| 参数       | 说明                                                                                           | 类型   | 可选值     | 默认值 |
-| ---------- | ---------------------------------------------------------------------------------------------- | ------ | ---------- | ------ |
-| dictOption | 字典的配置，见下方说明                                                                         | Object | -          | -      |
-| dictData   | 自定义的字典数据，当传入时，将不发请求                                                         | Array  | -          | -      |
-| code       | 发送请求的字典代码                                                                             | String | -          | -      |
-| type       | select 下拉选择,cascader 级联,radio(-button) 单选框,checkbox(-button) 多选框,text 文字         | String | -          | select |
-| transform  | 多选时是否进行数据值的转换，只有 multiple=true 时生效，使用 join 和 split 的符号进行拼接和分割 | Bolean | true/false | false  |
-| join       | transform=true 时数组拼接成字符串的符号。type="text"时,数组拼接成字符串的符号                  | String | -          | ","    |
-| split      | transform=true 时字符串分割成数组的符号                                                        | String | -          | ","    |
+```bash
+yarn release
+yarn build
+npm publish
+```
 
-## Events
+## Deploy docs
 
-| 事件名称 | 说明             | 回调参数 |
-| -------- | ---------------- | -------- |
-| change   | 选择字典项时触发 | value    |
+Automatic deployment to gh-pages using `.github/workflows/deploy.yml`.
 
-## Slots
+If you want to deploy manually, remove `deploy.yml` and run
 
-| name    | 说明                                                                                                        |
-| ------- | ----------------------------------------------------------------------------------------------------------- |
-| default | 使用默认插槽时将不再根据 type 渲染组件，插槽暴露 options 属性：`<template #default="{options}"></template>` |
-
-## DictOption
-
-| 参数     | 说明               | 类型    | 可选值 | 默认值   |
-| -------- | ------------------ | ------- | ------ | -------- |
-| label    | 字典的名称属性值   | String  | -      | label    |
-| value    | 字典的值属性值     | String  | -      | value    |
-| children | 字典的子属性值     | String  | -      | children |
-| request  | 字典的请求函数     | Promise | -      | null     |
-| dataPath | 请求返回的数据格式 | String  | -      | res.data |
-
-## Method
-
-| name     | 说明     | 参数                                                                   |
-| -------- | -------- | ---------------------------------------------------------------------- |
-| getLabel | 获取标题 | (value:String//值, options:Array//字典数组, join:String = ","//分隔符) |
-| flatTree | 树扁平化 | (tree:Array//树数组, childrenKey:String = "children"//树子数组的 key)  |
+```bash
+yarn docs:build # packages/.vitepress/dist
+```

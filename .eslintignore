@@ -2,9 +2,5 @@
 coverage
 lib
 node_modules
-.DS_Store
 dist
-dist-ssr
 es
-*.local
-/global.d.ts
