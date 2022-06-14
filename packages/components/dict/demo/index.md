@@ -1,4 +1,4 @@
-# Input
+# Dict
 
 ## Basic
 
@@ -6,14 +6,14 @@
 ./basic
 :::
 
-## Size
+## Promise
 
 ::: demo
-./size
+./promise
 :::
 
-## Textarea
+## Type
 
 ::: demo
-./textarea
+./type
 :::

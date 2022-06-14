@@ -8,7 +8,7 @@ import { useConfig } from "../config";
 
 describe("useConfig", () => {
   it("should set global config", () => {
-    const config: Config = { size: "small" };
+    const config: Config = { label: "label", value: "value" };
     const globalConfig: Config = { ...CONFIG_DEFAULT, ...config };
     if (isVue2) {
       const app = Vue2 as any;

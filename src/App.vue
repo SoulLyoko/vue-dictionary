@@ -1,15 +1,23 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <h3 v-if="userName">
-      Hi,{{ userName }}!
-      <br />
-      <VButton @click="onBack">Back</VButton>
-    </h3>
-    <div v-else>
-      <VInput v-model="inputValue" placeholder="Input your name"></VInput>
-      <VButton type="primary" @click="onConfirm">Confirm</VButton>
-    </div>
+    <br />
+    <v-dict v-model="dictValue" type="select" :data="dictDataArray" cache="test1"></v-dict>
+    <br />
+    <v-dict v-model="dictValue" type="radio" :data="dictDataArray" cache="test1"></v-dict>
+    <br />
+    <v-dict v-model="dictValue" button type="radio" :data="dictDataArray" cache="test1"></v-dict>
+    <br />
+    <v-dict v-model="dictValue" type="text" :data="dictDataArray" cache="test1"></v-dict>
+    <br />
+    <br />
+    <v-dict v-model="dictValues" type="select" multiple :data="dictDataPromiseFunction" cache="test2"></v-dict>
+    <br />
+    <v-dict v-model="dictValues" type="checkbox" :data="dictDataPromiseFunction" cache="test2"></v-dict>
+    <br />
+    <v-dict v-model="dictValues" button type="checkbox" :data="dictDataPromiseFunction" cache="test2"></v-dict>
+    <br />
+    <v-dict v-model="dictValues" type="text" :data="dictDataPromiseFunction" cache="test2"></v-dict>
   </div>
 </template>
 
@@ -19,25 +27,21 @@ import { defineComponent, ref } from "vue-demi";
 export default defineComponent({
   name: "App",
   setup() {
-    const inputValue = ref("");
-    const userName = ref("");
-
-    function onConfirm() {
-      if (!inputValue.value) {
-        return alert("Please enter your name");
-      }
-      userName.value = inputValue.value;
-    }
-    function onBack() {
-      userName.value = "";
-    }
-
-    return {
-      inputValue,
-      userName,
-      onConfirm,
-      onBack
+    const dictValue = ref("");
+    const dictValues = ref([]);
+    const dictDataArray = [
+      { label: "1", value: "1" },
+      { label: "2", value: "2" }
+    ];
+    const dictDataPromiseFunction = () => {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve({ data: dictDataArray });
+        }, 1000);
+      });
     };
+
+    return { dictValue, dictValues, dictDataArray, dictDataPromiseFunction };
   }
 });
 </script>

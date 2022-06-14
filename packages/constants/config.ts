@@ -1,7 +1,10 @@
 import type { Config } from "~/types";
 
-export const CONFIG_KEY = "$VConfig";
+export const CONFIG_KEY = "$DictOption";
 
 export const CONFIG_DEFAULT: Config = {
-  size: "default"
+  label: "label",
+  value: "value",
+  children: "children",
+  res: "res.data"
 };

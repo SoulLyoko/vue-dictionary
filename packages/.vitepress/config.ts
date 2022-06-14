@@ -1,5 +1,6 @@
-import { defineConfig } from "vitepress";
 import path from "path";
+
+import { defineConfig } from "vitepress";
 import { mdDemoTransform } from "./plugins/md-demo-transform";
 import pkg from "../../package.json";
 
@@ -10,10 +11,7 @@ const Guide = [
 const Components = [
   {
     text: "Components",
-    children: [
-      { text: "Button", link: "/components/button/demo/index" },
-      { text: "Input", link: "/components/input/demo/index" }
-    ]
+    children: [{ text: "Dict", link: "/components/dict/demo/index" }]
   }
 ];
 

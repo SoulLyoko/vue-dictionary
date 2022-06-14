@@ -3,6 +3,7 @@ import path from "path";
 import { defineConfig } from "vite";
 import { isVue2 } from "vue-demi";
 import fs from "fs-extra";
+import { viteCommonjs } from "@originjs/vite-plugin-commonjs";
 
 import pkg from "./package.json";
 
@@ -19,7 +20,7 @@ export default defineConfig(async ({ mode }) => {
     fs.removeSync("lib");
   }
   return {
-    plugins: [vuePlugin],
+    plugins: [vuePlugin, viteCommonjs()],
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "src"),

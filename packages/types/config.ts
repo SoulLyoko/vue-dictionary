@@ -1,3 +1,7 @@
 export interface Config {
-  size?: "small" | "default" | "large";
+  label?: string;
+  value?: string;
+  children?: string;
+  res?: string;
+  params?: any;
 }

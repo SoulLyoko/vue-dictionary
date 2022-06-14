@@ -10,5 +10,6 @@
     },
     "types": ["vitest/globals"]
   },
-  "include": ["packages", "packages/.vitepress/**/*", "src"]
+  "include": ["packages", "packages/.vitepress/**/*", "src"],
+  "exclude": ["packages/.vitepress/dist"]
 }

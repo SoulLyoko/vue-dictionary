@@ -1,3 +1,4 @@
 export * from "./config";
 export * from "./props";
-export * from "./size";
+export * from "./dict";
+export * from "./selected";
