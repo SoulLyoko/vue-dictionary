@@ -1,3 +1,17 @@
+# [2.0.0-beta.2](https://github.com/SoulLyoko/vue-dictionary/compare/v2.0.0-beta.1...v2.0.0-beta.2) (2022-06-15)
+
+
+### Bug Fixes
+
+* types  import path ([ae9317b](https://github.com/SoulLyoko/vue-dictionary/commit/ae9317b644ecfe2004258c06c048dfc545c2d4fc))
+
+
+### Features
+
+* componets events ([9e73593](https://github.com/SoulLyoko/vue-dictionary/commit/9e73593ee4ffe2a86bf9156e9235c1ac49cc275f))
+
+
+
 # 2.0.0-beta.1 (2022-06-15)
 
 
