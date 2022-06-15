@@ -1,6 +1,6 @@
 import { defineComponent } from "vue-demi";
 
-import { dictProps, dictEmits, useListeners } from "~/constants";
+import { dictProps, basicEmits, useListeners } from "~/constants";
 import { h, dynamicComponent } from "~/utils";
 import { useDict } from "~/composables";
 
@@ -9,7 +9,7 @@ export type RadioInstance = InstanceType<typeof VDictRadio>;
 export const VDictRadio = defineComponent({
   name: "VDictRadio",
   props: dictProps,
-  emits: dictEmits,
+  emits: basicEmits,
   setup(props, { emit, attrs }) {
     const ElRadioGroup = dynamicComponent("el-radio-group");
     const ElRadio = dynamicComponent("el-radio");
@@ -22,7 +22,7 @@ export const VDictRadio = defineComponent({
         ElRadioGroup,
         {
           props: { ...props, ...attrs },
-          on: useListeners(emit)
+          on: useListeners(emit, basicEmits)
         },
         () =>
           data.value?.map(item =>

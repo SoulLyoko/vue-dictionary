@@ -1,9 +1,10 @@
-import type { DictValue } from "~/types";
+import type { SetupContext, EmitsOptions } from "vue-demi";
 
-export function useListeners(emit: any) {
-  return {
-    "update:modelValue": (e: DictValue) => emit("update:modelValue", e),
-    input: (e: DictValue) => emit("input", e),
-    change: (e: DictValue) => emit("change", e)
-  };
+export function useListeners(emit: SetupContext<any[]>["emit"], emits: EmitsOptions) {
+  return Object.keys(emits).reduce((prevObj, currKey) => {
+    return {
+      ...prevObj,
+      [currKey]: (...args: any[]) => emit(currKey, ...args)
+    };
+  }, {});
 }

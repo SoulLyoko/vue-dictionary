@@ -1,6 +1,6 @@
 import { defineComponent, computed } from "vue-demi";
 
-import { dictProps, dictEmits, useListeners } from "~/constants";
+import { dictProps, cascaderEmits, useListeners } from "~/constants";
 import { h } from "~/utils";
 import { VDictSelect } from "../../select";
 import { VDictRadio } from "../../radio";
@@ -12,7 +12,7 @@ export type DictInstance = InstanceType<typeof VDict>;
 export const VDict = defineComponent({
   name: "VDict",
   props: dictProps,
-  emits: dictEmits,
+  emits: cascaderEmits,
   setup(props, { emit, attrs }) {
     const componentMap = {
       select: VDictSelect,
@@ -27,7 +27,7 @@ export const VDict = defineComponent({
       h(component.value, {
         props,
         attrs,
-        on: useListeners(emit)
+        on: useListeners(emit, cascaderEmits)
       });
   }
 });

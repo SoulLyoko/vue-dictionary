@@ -1,6 +1,6 @@
 import { defineComponent } from "vue-demi";
 
-import { dictProps, dictEmits, useListeners } from "~/constants";
+import { dictProps, basicEmits, useListeners } from "~/constants";
 import { h, dynamicComponent } from "~/utils";
 import { useDict } from "~/composables";
 
@@ -9,7 +9,7 @@ export type CheckboxInstance = InstanceType<typeof VDictCheckbox>;
 export const VDictCheckbox = defineComponent({
   name: "VDictRadio",
   props: dictProps,
-  emits: dictEmits,
+  emits: basicEmits,
   setup(props, { emit, attrs }) {
     const ElCheckboxGroup = dynamicComponent("el-checkbox-group");
     const ElCheckbox = dynamicComponent("el-checkbox");
@@ -22,7 +22,7 @@ export const VDictCheckbox = defineComponent({
         ElCheckboxGroup,
         {
           props: { ...props, ...attrs },
-          on: useListeners(emit)
+          on: useListeners(emit, basicEmits)
         },
         () =>
           data.value?.map(item =>

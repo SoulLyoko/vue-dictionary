@@ -1,6 +1,6 @@
 import { defineComponent } from "vue-demi";
 
-import { dictProps, dictEmits, useListeners } from "~/constants";
+import { dictProps, selectEmits, useListeners } from "~/constants";
 import { h, dynamicComponent } from "~/utils";
 import { useDict } from "~/composables";
 
@@ -9,7 +9,7 @@ export type SelectInstance = InstanceType<typeof VDictSelect>;
 export const VDictSelect = defineComponent({
   name: "VDictSelect",
   props: dictProps,
-  emits: dictEmits,
+  emits: selectEmits,
   setup(props, { emit, attrs }) {
     const ElSelect = dynamicComponent("el-select");
     const ElOption = dynamicComponent("el-option");
@@ -21,7 +21,7 @@ export const VDictSelect = defineComponent({
         ElSelect,
         {
           props: { ...props, ...attrs },
-          on: useListeners(emit)
+          on: useListeners(emit, selectEmits)
         },
         () => data.value?.map(item => h(ElOption, { props: item }))
       );
