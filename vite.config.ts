@@ -12,7 +12,13 @@ export default defineConfig(async ({ mode }) => {
   const vuePlugin = isVue2
     ? (await import("vite-plugin-vue2")).createVuePlugin()
     : (await import("@vitejs/plugin-vue")).default();
-  const globals = { vue: "Vue", "vue-demi": "VueDemi" };
+  const globals = {
+    vue: "Vue",
+    "vue-demi": "VueDemi",
+    "@vueuse/core": "VueUse",
+    "lodash-es": "_",
+    lodash: "_"
+  };
   const external = Object.keys(globals);
   if (mode === "production") {
     fs.removeSync("dist");
@@ -51,7 +57,7 @@ export default defineConfig(async ({ mode }) => {
           },
           {
             preserveModules: true,
-            preserveModulesRoot: path.resolve(__dirname, "es"),
+            preserveModulesRoot: path.resolve(__dirname, "packages"),
             entryFileNames: "[name].js",
             format: "es",
             dir: "es"
@@ -59,7 +65,7 @@ export default defineConfig(async ({ mode }) => {
           {
             exports: "named",
             preserveModules: true,
-            preserveModulesRoot: path.resolve(__dirname, "lib"),
+            preserveModulesRoot: path.resolve(__dirname, "packages"),
             entryFileNames: "[name].js",
             format: "cjs",
             dir: "lib"

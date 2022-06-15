@@ -2,7 +2,7 @@ import type { MaybeRef } from "@vueuse/core";
 import type { DictItem, DictValue, Config } from "~/types";
 
 import { computed, isRef } from "vue-demi";
-import isNil from "lodash/isNil";
+import { isNil } from "lodash-unified";
 
 import { CONFIG_DEFAULT } from "~/constants";
 

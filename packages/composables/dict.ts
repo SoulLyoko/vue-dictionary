@@ -3,7 +3,7 @@ import type { DictItem, DictData, Config } from "~/types";
 
 import { ref } from "vue-demi";
 import { createGlobalState } from "@vueuse/core";
-import get from "lodash/get";
+import { get } from "lodash-unified";
 
 import { CONFIG_DEFAULT } from "~/constants";
 
