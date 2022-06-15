@@ -1,7 +1,7 @@
 import { mount } from "@vue/test-utils";
-import { isVue2 } from "vue-demi";
+import { isVue2, defineComponent } from "vue-demi";
 
-import { adaptOnsV3, h, slot } from "../h-demi";
+import { adaptOnsV3, h, slot, dynamicComponent } from "../h-demi";
 
 describe("h-demi", () => {
   it("adaptOnsV3", () => {
@@ -25,7 +25,7 @@ describe("h-demi", () => {
         h(
           "button",
           {
-            props: { name: "hi" },
+            attrs: { name: "hi" },
             on: {
               click: () => {
                 isClicked = true;
@@ -35,11 +35,13 @@ describe("h-demi", () => {
           "hi"
         )
     });
+
     if (isVue2) {
-      expect(wrapper.html()).toMatchInlineSnapshot('"<button>hi</button>"');
+      expect(wrapper.html()).toMatchInlineSnapshot('"<button name=\\"hi\\">hi</button>"');
     } else {
       expect(wrapper.html()).toMatchInlineSnapshot('"<button name=\\"hi\\">hi</button>"');
     }
+
     await wrapper.trigger("click");
     expect(isClicked).toBeTruthy();
   });
@@ -49,10 +51,30 @@ describe("h-demi", () => {
     const result = slot(slotString);
     expect(result).toEqual(slotString);
   });
+
   it("slot function", () => {
     const slotAttrs = { a: "a", b: "b" };
     const slotFunction = (attrs: typeof slotAttrs) => attrs;
     const result = slot(slotFunction, slotAttrs);
     expect(result).toEqual(slotAttrs);
+  });
+
+  it("dynamicComponent", () => {
+    const TestDynamicComponent = defineComponent({
+      name: "TestDynamicComponent",
+      setup() {
+        return () => h("button", {}, "hi");
+      }
+    });
+    const wrapper = mount({
+      components: { TestDynamicComponent },
+      render: () => h(dynamicComponent("TestDynamicComponent"))
+    });
+
+    if (isVue2) {
+      expect(wrapper.html()).toMatchInlineSnapshot('"<button>hi</button>"');
+    } else {
+      expect(wrapper.html()).toMatchInlineSnapshot('"<button>hi</button>"');
+    }
   });
 });
