@@ -1,11 +1,11 @@
 import type { Ref } from "vue-demi";
-import type { DictItem, DictData, Config } from "~/types";
+import type { DictItem, DictData, Config } from "../types";
 
 import { ref } from "vue-demi";
 import { createGlobalState } from "@vueuse/core";
 import { get } from "lodash-unified";
 
-import { CONFIG_DEFAULT } from "~/constants";
+import { CONFIG_DEFAULT } from "../constants";
 
 export interface DictStorageItem {
   data: Ref<DictItem[] | undefined>;

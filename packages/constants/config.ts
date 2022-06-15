@@ -1,4 +1,4 @@
-import type { Config } from "~/types";
+import type { Config } from "../types";
 
 export const CONFIG_KEY = "$DictOption";
 
