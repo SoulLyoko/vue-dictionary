@@ -1,4 +1,4 @@
-import type { SetupContext, ExtractPropTypes } from "vue-demi";
+import type { PropTypes, EmitFn } from "~/types";
 
 import { defineComponent } from "vue-demi";
 
@@ -6,9 +6,9 @@ import { basicProps, basicEmits, cascaderRestEmits, useListeners } from "~/const
 import { h, dynamicComponent } from "~/utils";
 import { useDict } from "~/composables";
 
-export type CascaderPanelProps = ExtractPropTypes<typeof cascaderPanelProps>;
+export type CascaderPanelProps = PropTypes<typeof cascaderPanelProps>;
 export type CascaderPanelEmits = typeof cascaderPanelEmits;
-export type CascaderPanelEmitFn = SetupContext<CascaderPanelEmits>["emit"];
+export type CascaderPanelEmitFn = EmitFn<CascaderPanelEmits>;
 export type CascaderPanelInstance = InstanceType<typeof DictCascaderPanel>;
 
 export const cascaderPanelProps = basicProps;

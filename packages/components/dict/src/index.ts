@@ -1,4 +1,4 @@
-import type { SetupContext, ExtractPropTypes } from "vue-demi";
+import type { PropTypes, EmitFn } from "~/types";
 
 import { defineComponent, computed } from "vue-demi";
 
@@ -6,9 +6,9 @@ import { fullProps, fullEmits, useListeners } from "~/constants";
 import { h } from "~/utils";
 import { DictCascader, DictCascaderPanel, DictSelect, DictRadio, DictCheckbox, DictText } from "../..";
 
-export type DictProps = ExtractPropTypes<typeof dictProps>;
+export type DictProps = PropTypes<typeof dictProps>;
 export type DictEmits = typeof dictEmits;
-export type DictEmit = SetupContext<DictEmits>["emit"];
+export type DictEmit = EmitFn<DictEmits>;
 export type DictInstance = InstanceType<typeof VDict>;
 
 export const dictProps = fullProps;

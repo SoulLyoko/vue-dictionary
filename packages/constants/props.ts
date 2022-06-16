@@ -1,5 +1,5 @@
 import type { PropType } from "vue-demi";
-import type { DictValue, DictData, Config } from "../types";
+import type { Config, DictValue, DictData, DictComponentType } from "../types";
 
 export const basicProps = {
   value: { type: [String, Number, Array] as PropType<DictValue>, default: "" }, // Vue2
@@ -10,10 +10,7 @@ export const basicProps = {
 };
 
 export const typeProps = {
-  type: {
-    type: String as PropType<"select" | "radio" | "checkbox" | "cascader" | "cascader-panel" | "text">,
-    default: "select"
-  }
+  type: { type: String as PropType<DictComponentType>, default: "select" }
 };
 
 export const buttonProps = {

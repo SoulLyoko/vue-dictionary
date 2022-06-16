@@ -1,4 +1,4 @@
-import type { SetupContext, ExtractPropTypes } from "vue-demi";
+import type { PropTypes, EmitFn } from "~/types";
 
 import { defineComponent } from "vue-demi";
 
@@ -6,9 +6,9 @@ import { basicProps, basicEmits, selectRestEmits, useListeners } from "~/constan
 import { h, dynamicComponent } from "~/utils";
 import { useDict } from "~/composables";
 
-export type SelectProps = ExtractPropTypes<typeof selectProps>;
+export type SelectProps = PropTypes<typeof selectProps>;
 export type SelectEmits = typeof selectEmits;
-export type SelectEmitFn = SetupContext<SelectEmits>["emit"];
+export type SelectEmitFn = EmitFn<SelectEmits>;
 export type SelectInstance = InstanceType<typeof DictSelect>;
 
 export const selectProps = basicProps;

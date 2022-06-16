@@ -1,4 +1,4 @@
-import type { ExtractPropTypes } from "vue-demi";
+import type { PropTypes } from "~/types";
 
 import { defineComponent, isVue2, toRefs } from "vue-demi";
 
@@ -6,7 +6,7 @@ import { basicProps } from "~/constants";
 import { h } from "~/utils";
 import { useDict, useSelected } from "~/composables";
 
-export type TextProps = ExtractPropTypes<typeof textProps>;
+export type TextProps = PropTypes<typeof textProps>;
 export type TextInstance = InstanceType<typeof DictText>;
 
 export const textProps = basicProps;

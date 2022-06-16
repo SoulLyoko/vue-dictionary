@@ -1,4 +1,4 @@
-import type { SetupContext, ExtractPropTypes } from "vue-demi";
+import type { PropTypes, EmitFn } from "~/types";
 
 import { defineComponent } from "vue-demi";
 
@@ -6,9 +6,9 @@ import { basicProps, buttonProps, basicEmits, useListeners } from "~/constants";
 import { h, dynamicComponent } from "~/utils";
 import { useDict } from "~/composables";
 
-export type RadioProps = ExtractPropTypes<typeof radioProps>;
+export type RadioProps = PropTypes<typeof radioProps>;
 export type RadioEmits = typeof radioEmits;
-export type RadioEmitFn = SetupContext<RadioEmits>["emit"];
+export type RadioEmitFn = EmitFn<RadioEmits>;
 export type RadioInstance = InstanceType<typeof DictRadio>;
 
 export const radioProps = { ...basicProps, ...buttonProps };
