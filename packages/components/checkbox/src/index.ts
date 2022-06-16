@@ -9,13 +9,13 @@ import { useDict } from "~/composables";
 export type CheckboxProps = ExtractPropTypes<typeof checkboxProps>;
 export type CheckboxEmits = typeof checkboxEmits;
 export type CheckboxEmitFn = SetupContext<CheckboxEmits>["emit"];
-export type CheckboxInstance = InstanceType<typeof VDictCheckbox>;
+export type CheckboxInstance = InstanceType<typeof DictCheckbox>;
 
 export const checkboxProps = { ...basicProps, ...buttonProps };
 export const checkboxEmits = basicEmits;
 
-export const VDictCheckbox = defineComponent({
-  name: "VDictCheckbox",
+export const DictCheckbox = defineComponent({
+  name: "DictCheckbox",
   props: checkboxProps,
   emits: checkboxEmits,
   setup(props, { emit, attrs }) {
@@ -30,6 +30,7 @@ export const VDictCheckbox = defineComponent({
         ElCheckboxGroup,
         {
           props: { ...props, ...attrs },
+          attrs: { ref: "checkboxRef" },
           on: useListeners(emit, checkboxEmits)
         },
         () =>

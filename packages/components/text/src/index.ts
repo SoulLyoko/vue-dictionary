@@ -7,12 +7,12 @@ import { h } from "~/utils";
 import { useDict, useSelected } from "~/composables";
 
 export type TextProps = ExtractPropTypes<typeof textProps>;
-export type TextInstance = InstanceType<typeof VDictText>;
+export type TextInstance = InstanceType<typeof DictText>;
 
 export const textProps = basicProps;
 
-export const VDictText = defineComponent({
-  name: "VDictText",
+export const DictText = defineComponent({
+  name: "DictText",
   props: textProps,
   setup(props) {
     const { data } = useDict(props.data, props.option, props.cache);

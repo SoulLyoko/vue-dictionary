@@ -9,13 +9,13 @@ import { useDict } from "~/composables";
 export type RadioProps = ExtractPropTypes<typeof radioProps>;
 export type RadioEmits = typeof radioEmits;
 export type RadioEmitFn = SetupContext<RadioEmits>["emit"];
-export type RadioInstance = InstanceType<typeof VDictRadio>;
+export type RadioInstance = InstanceType<typeof DictRadio>;
 
 export const radioProps = { ...basicProps, ...buttonProps };
 export const radioEmits = basicEmits;
 
-export const VDictRadio = defineComponent({
-  name: "VDictRadio",
+export const DictRadio = defineComponent({
+  name: "DictRadio",
   props: radioProps,
   emits: radioEmits,
   setup(props, { emit, attrs }) {
@@ -30,6 +30,7 @@ export const VDictRadio = defineComponent({
         ElRadioGroup,
         {
           props: { ...props, ...attrs },
+          attrs: { ref: "radioRef" },
           on: useListeners(emit, radioEmits)
         },
         () =>

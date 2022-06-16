@@ -4,7 +4,7 @@ import { defineComponent, computed } from "vue-demi";
 
 import { fullProps, fullEmits, useListeners } from "~/constants";
 import { h } from "~/utils";
-import { VDictSelect, VDictRadio, VDictCheckbox, VDictText } from "../..";
+import { DictCascader, DictCascaderPanel, DictSelect, DictRadio, DictCheckbox, DictText } from "../..";
 
 export type DictProps = ExtractPropTypes<typeof dictProps>;
 export type DictEmits = typeof dictEmits;
@@ -20,10 +20,12 @@ export const VDict = defineComponent({
   emits: dictEmits,
   setup(props, { emit, attrs }) {
     const componentMap = {
-      select: VDictSelect,
-      radio: VDictRadio,
-      checkbox: VDictCheckbox,
-      text: VDictText
+      cascader: DictCascader,
+      "cascader-panel": DictCascaderPanel,
+      checkbox: DictCheckbox,
+      radio: DictRadio,
+      select: DictSelect,
+      text: DictText
     };
 
     const component = computed(() => componentMap[props.type]);
@@ -31,7 +33,7 @@ export const VDict = defineComponent({
     return () =>
       h(component.value, {
         props,
-        attrs,
+        attrs: { ref: "dictRef", ...attrs },
         on: useListeners(emit, dictEmits)
       });
   }
