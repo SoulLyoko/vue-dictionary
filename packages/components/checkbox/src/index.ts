@@ -7,7 +7,7 @@ import { useDict } from "~/composables";
 export type CheckboxInstance = InstanceType<typeof VDictCheckbox>;
 
 export const VDictCheckbox = defineComponent({
-  name: "VDictRadio",
+  name: "VDictCheckbox",
   props: dictProps,
   emits: basicEmits,
   setup(props, { emit, attrs }) {
