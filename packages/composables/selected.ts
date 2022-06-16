@@ -27,7 +27,7 @@ export function useSelected<T extends DictItem[]>(
       if (isMultiple) {
         return value.some(e => e == item[config.value]);
       } else {
-        return value == item[value];
+        return value == item[config.value];
       }
     });
     if (config.returnLabel) {
