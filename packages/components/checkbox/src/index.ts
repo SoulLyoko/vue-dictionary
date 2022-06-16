@@ -1,15 +1,23 @@
+import type { SetupContext, ExtractPropTypes } from "vue-demi";
+
 import { defineComponent } from "vue-demi";
 
-import { dictProps, basicEmits, useListeners } from "~/constants";
+import { basicProps, basicEmits, useListeners } from "~/constants";
 import { h, dynamicComponent } from "~/utils";
 import { useDict } from "~/composables";
 
+export type CheckboxProps = ExtractPropTypes<typeof checkboxProps>;
+export type CheckboxEmits = typeof checkboxEmits;
+export type CheckboxEmitFn = SetupContext<CheckboxEmits>["emit"];
 export type CheckboxInstance = InstanceType<typeof VDictCheckbox>;
+
+export const checkboxProps = { ...basicProps, button: { type: Boolean } };
+export const checkboxEmits = basicEmits;
 
 export const VDictCheckbox = defineComponent({
   name: "VDictCheckbox",
-  props: dictProps,
-  emits: basicEmits,
+  props: checkboxProps,
+  emits: checkboxEmits,
   setup(props, { emit, attrs }) {
     const ElCheckboxGroup = dynamicComponent("el-checkbox-group");
     const ElCheckbox = dynamicComponent("el-checkbox");
@@ -22,7 +30,7 @@ export const VDictCheckbox = defineComponent({
         ElCheckboxGroup,
         {
           props: { ...props, ...attrs },
-          on: useListeners(emit, basicEmits)
+          on: useListeners(emit, checkboxEmits)
         },
         () =>
           data.value?.map(item =>

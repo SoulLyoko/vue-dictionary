@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+import { checkboxEmits, radioEmits, selectEmits } from "../components";
 
 export const vModelEmits = {
   input: (...args: any[]) => true, // Vue2
@@ -14,16 +14,13 @@ export const basicEmits = {
   ...changeEmits
 };
 
-export const selectEmits = {
-  ...basicEmits,
-  "visible-change": (v: boolean) => true,
-  "remove-tag": (...args: any[]) => true,
-  clear: () => true,
-  blur: (event: Event) => true,
-  focus: (event: Event) => true
+export const fullEmits = {
+  ...checkboxEmits,
+  ...radioEmits,
+  ...selectEmits
 };
 
-export const cascaderEmits = {
-  ...selectEmits,
-  "expand-change": (...args: any[]) => true
-};
+// export const cascaderEmits = {
+//   ...selectEmits,
+//   "expand-change": (...args: any[]) => true
+// };

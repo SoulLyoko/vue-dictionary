@@ -1,18 +1,23 @@
+import type { SetupContext, ExtractPropTypes } from "vue-demi";
+
 import { defineComponent, computed } from "vue-demi";
 
-import { dictProps, cascaderEmits, useListeners } from "~/constants";
+import { fullProps, fullEmits, useListeners } from "~/constants";
 import { h } from "~/utils";
-import { VDictSelect } from "../../select";
-import { VDictRadio } from "../../radio";
-import { VDictCheckbox } from "../../checkbox";
-import { VDictText } from "../../text";
+import { VDictSelect, VDictRadio, VDictCheckbox, VDictText } from "../..";
 
+export type DictProps = ExtractPropTypes<typeof dictProps>;
+export type DictEmits = typeof dictEmits;
+export type DictEmit = SetupContext<DictEmits>["emit"];
 export type DictInstance = InstanceType<typeof VDict>;
+
+export const dictProps = fullProps;
+export const dictEmits = fullEmits;
 
 export const VDict = defineComponent({
   name: "VDict",
   props: dictProps,
-  emits: cascaderEmits,
+  emits: dictEmits,
   setup(props, { emit, attrs }) {
     const componentMap = {
       select: VDictSelect,
@@ -27,7 +32,7 @@ export const VDict = defineComponent({
       h(component.value, {
         props,
         attrs,
-        on: useListeners(emit, cascaderEmits)
+        on: useListeners(emit, dictEmits)
       });
   }
 });

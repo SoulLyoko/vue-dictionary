@@ -1,15 +1,23 @@
+import type { SetupContext, ExtractPropTypes } from "vue-demi";
+
 import { defineComponent } from "vue-demi";
 
-import { dictProps, basicEmits, useListeners } from "~/constants";
+import { basicProps, basicEmits, useListeners } from "~/constants";
 import { h, dynamicComponent } from "~/utils";
 import { useDict } from "~/composables";
 
+export type RadioProps = ExtractPropTypes<typeof radioProps>;
+export type RadioEmits = typeof radioEmits;
+export type RadioEmitFn = SetupContext<RadioEmits>["emit"];
 export type RadioInstance = InstanceType<typeof VDictRadio>;
+
+export const radioProps = { ...basicProps, button: { type: Boolean } };
+export const radioEmits = basicEmits;
 
 export const VDictRadio = defineComponent({
   name: "VDictRadio",
-  props: dictProps,
-  emits: basicEmits,
+  props: radioProps,
+  emits: radioEmits,
   setup(props, { emit, attrs }) {
     const ElRadioGroup = dynamicComponent("el-radio-group");
     const ElRadio = dynamicComponent("el-radio");
@@ -22,7 +30,7 @@ export const VDictRadio = defineComponent({
         ElRadioGroup,
         {
           props: { ...props, ...attrs },
-          on: useListeners(emit, basicEmits)
+          on: useListeners(emit, radioEmits)
         },
         () =>
           data.value?.map(item =>
