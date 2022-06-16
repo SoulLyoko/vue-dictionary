@@ -2,7 +2,7 @@ import type { SetupContext, ExtractPropTypes } from "vue-demi";
 
 import { defineComponent } from "vue-demi";
 
-import { basicProps, basicEmits, useListeners } from "~/constants";
+import { basicProps, buttonProps, basicEmits, useListeners } from "~/constants";
 import { h, dynamicComponent } from "~/utils";
 import { useDict } from "~/composables";
 
@@ -11,7 +11,7 @@ export type RadioEmits = typeof radioEmits;
 export type RadioEmitFn = SetupContext<RadioEmits>["emit"];
 export type RadioInstance = InstanceType<typeof VDictRadio>;
 
-export const radioProps = { ...basicProps, button: { type: Boolean } };
+export const radioProps = { ...basicProps, ...buttonProps };
 export const radioEmits = basicEmits;
 
 export const VDictRadio = defineComponent({

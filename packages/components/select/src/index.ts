@@ -2,7 +2,7 @@ import type { SetupContext, ExtractPropTypes } from "vue-demi";
 
 import { defineComponent } from "vue-demi";
 
-import { basicProps, basicEmits, useListeners } from "~/constants";
+import { basicProps, basicEmits, selectRestEmits, useListeners } from "~/constants";
 import { h, dynamicComponent } from "~/utils";
 import { useDict } from "~/composables";
 
@@ -12,14 +12,7 @@ export type SelectEmitFn = SetupContext<SelectEmits>["emit"];
 export type SelectInstance = InstanceType<typeof VDictSelect>;
 
 export const selectProps = basicProps;
-export const selectEmits = {
-  ...basicEmits,
-  "visible-change": (v: boolean) => true,
-  "remove-tag": (...args: any[]) => true,
-  clear: () => true,
-  blur: (event: Event) => true,
-  focus: (event: Event) => true
-};
+export const selectEmits = { ...basicEmits, ...selectRestEmits };
 
 export const VDictSelect = defineComponent({
   name: "VDictSelect",

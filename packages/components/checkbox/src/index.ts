@@ -2,7 +2,7 @@ import type { SetupContext, ExtractPropTypes } from "vue-demi";
 
 import { defineComponent } from "vue-demi";
 
-import { basicProps, basicEmits, useListeners } from "~/constants";
+import { basicProps, buttonProps, basicEmits, useListeners } from "~/constants";
 import { h, dynamicComponent } from "~/utils";
 import { useDict } from "~/composables";
 
@@ -11,7 +11,7 @@ export type CheckboxEmits = typeof checkboxEmits;
 export type CheckboxEmitFn = SetupContext<CheckboxEmits>["emit"];
 export type CheckboxInstance = InstanceType<typeof VDictCheckbox>;
 
-export const checkboxProps = { ...basicProps, button: { type: Boolean } };
+export const checkboxProps = { ...basicProps, ...buttonProps };
 export const checkboxEmits = basicEmits;
 
 export const VDictCheckbox = defineComponent({
