@@ -1,3 +1,17 @@
+# [2.0.0-beta.5](https://github.com/SoulLyoko/vue-dictionary/compare/v2.0.0-beta.4...v2.0.0-beta.5) (2022-06-16)
+
+
+### Bug Fixes
+
+* rename components ([e50ef38](https://github.com/SoulLyoko/vue-dictionary/commit/e50ef38d53ad32f8dca6f65bb9e0ccaa459c1824))
+
+
+### Features
+
+* dict-cascader , dict-cascader-panel ([7f33405](https://github.com/SoulLyoko/vue-dictionary/commit/7f33405b836f7adedbb79aac28f06d0b651d7e23))
+
+
+
 # [2.0.0-beta.4](https://github.com/SoulLyoko/vue-dictionary/compare/v2.0.0-beta.3...v2.0.0-beta.4) (2022-06-16)
 
 
