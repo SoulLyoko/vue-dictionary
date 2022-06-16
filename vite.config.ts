@@ -17,6 +17,7 @@ export default defineConfig(async ({ mode }) => {
     "vue-demi": "VueDemi",
     "@vueuse/core": "VueUse",
     "lodash-es": "_",
+    "lodash-unified": "_",
     lodash: "_"
   };
   const external = Object.keys(globals);
