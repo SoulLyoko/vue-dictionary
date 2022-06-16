@@ -23,10 +23,10 @@ function buildStyles() {
 function copyStyle() {
   fs.copyFileSync("lib/styles/index.css", "dist/index.css");
 }
-function copyGlobal() {
-  fs.copyFileSync("packages/global.d.ts", "global.d.ts");
+function buildGlobal() {
+  execSync("yarn build:global");
 }
 
 buildTypes();
 buildStyles();
-copyGlobal();
+buildGlobal();

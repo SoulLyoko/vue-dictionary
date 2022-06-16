@@ -36,6 +36,7 @@
     "dev": "yarn switch:3 && vite",
     "dev:2": "yarn switch:2 && vite",
     "build": "yarn switch:3 && yarn typecheck && vite build",
+    "build:global": "esno scripts/global.ts",
     "postbuild": "esno scripts/postbuild.ts",
     "serve": "yarn switch:3 && vite preview",
     "docs:dev": "yarn switch:3 && vitepress dev packages",
