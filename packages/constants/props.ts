@@ -10,7 +10,10 @@ export const basicProps = {
 };
 
 export const typeProps = {
-  type: { type: String as PropType<"select" | "radio" | "checkbox" | "text">, default: "select" }
+  type: {
+    type: String as PropType<"select" | "radio" | "checkbox" | "cascader" | "cascader-panel" | "text">,
+    default: "select"
+  }
 };
 
 export const buttonProps = {
