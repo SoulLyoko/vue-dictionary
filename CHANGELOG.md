@@ -1,3 +1,13 @@
+# [2.0.0-beta.4](https://github.com/SoulLyoko/vue-dictionary/compare/v2.0.0-beta.3...v2.0.0-beta.4) (2022-06-16)
+
+
+### Bug Fixes
+
+* fullProps and fullEmits error ([69c1ab6](https://github.com/SoulLyoko/vue-dictionary/commit/69c1ab6492933e3e2ebe968cb513505de874c304))
+* useSelected when is not multiple ([db4866a](https://github.com/SoulLyoko/vue-dictionary/commit/db4866aca1d88a5513fc93ddf64238de3780edc1))
+
+
+
 # [2.0.0-beta.3](https://github.com/SoulLyoko/vue-dictionary/compare/v2.0.0-beta.2...v2.0.0-beta.3) (2022-06-16)
 
 
