@@ -52,12 +52,12 @@
     "release": "esno scripts/release.ts",
     "typecheck": "vue-tsc --noEmit",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "ci": "yarn typecheck && yarn test:all && yarn build && yarn docs:build",
+    "ci": "yarn typecheck && yarn test:all && yarn docs:build && vite build",
     "prepare": "husky install",
     "lint": "eslint --ext .ts,.vue ."
   },
   "dependencies": {
-    "@vueuse/core": "^8.6.0",
+    "@vueuse/core": "^8.7.3",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "lodash-unified": "^1.0.2",
@@ -106,7 +106,7 @@
     "gulp-sass": "^5.1.0",
     "husky": "^8.0.1",
     "jsdom": "^19.0.0",
-    "lint-staged": "^13.0.1",
+    "lint-staged": "^13.0.2",
     "prettier": "^2.7.1",
     "sass": "^1.52.3",
     "typescript": "^4.7.3",
