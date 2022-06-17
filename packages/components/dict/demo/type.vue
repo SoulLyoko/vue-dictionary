@@ -22,6 +22,8 @@ const typeDict = [
   { label: "select", value: "select" },
   { label: "radio", value: "radio" },
   { label: "checkbox", value: "checkbox" },
+  { label: "switch", value: "switch" },
+  { label: "cascader", value: "cascader" },
   { label: "text", value: "text" }
 ];
 
