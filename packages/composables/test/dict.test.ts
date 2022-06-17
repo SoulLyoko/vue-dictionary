@@ -1,9 +1,9 @@
 import { ref } from "vue-demi";
 
-import { useDict, useDictStorage } from "../dict";
+import { useDict } from "../dict";
 
 const resolveTimeout = 100;
-const testCount = ref(0);
+const resolveCount = ref(0);
 const testData = [
   { label: "test1", value: "test1" },
   { label: "test2", value: "test2" }
@@ -14,10 +14,10 @@ const sleep = (ms?: number) => {
 };
 const getTestData = async () => {
   sleep(resolveTimeout);
-  testCount.value += 1;
+  resolveCount.value += 1;
   return testData;
 };
-const useDictFn = () => useDict(getTestData, { res: "res" }, "test");
+const useDictFn = () => useDict("test", getTestData, { res: "res" });
 
 describe("useDict", () => {
   it("returns", async () => {
@@ -32,7 +32,7 @@ describe("useDict", () => {
 
     execute();
     await sleep(resolveTimeout);
-    expect(testCount.value).toBe(2);
+    expect(resolveCount.value).toBe(2);
   });
 
   it("cache", async () => {
@@ -41,18 +41,18 @@ describe("useDict", () => {
       useDictFn();
       await sleep(i);
     }
-    expect(testCount.value).toBe(2);
+    expect(resolveCount.value).toBe(2);
   });
-});
 
-describe("useDictStorage", () => {
   it("return dictStorage", async () => {
-    const testStorage = useDictStorage();
-    expect(testStorage.test.data.value).toEqual(testData);
+    const {
+      test: { data }
+    } = useDict();
+    expect(data.value).toEqual(testData);
   });
 
   it("return dictStorageItem", async () => {
-    const testStorage = useDictStorage("test");
-    expect(testStorage.data.value).toEqual(testData);
+    const { data } = useDict("test");
+    expect(data.value).toEqual(testData);
   });
 });

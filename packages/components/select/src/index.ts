@@ -22,7 +22,7 @@ export const DictSelect = defineComponent({
     const ElSelect = dynamicComponent("el-select");
     const ElOption = dynamicComponent("el-option");
 
-    const { data } = useDict(props.data, props.option, props.cache);
+    const { data } = useDict(props.cache, props.data, props.option);
 
     return () =>
       h(

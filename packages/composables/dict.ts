@@ -19,36 +19,39 @@ export type DictStorage = Record<string, DictStorageItem>;
 
 export const dictStorage: DictStorage = {};
 
-export function useDictStorage(): DictStorage;
-export function useDictStorage(key: string): DictStorageItem;
-export function useDictStorage(key?: string) {
-  return key ? dictStorage[key] : dictStorage;
+export function formatDict(dictData: DictItem[], dictOption?: Config) {
+  const config = { ...CONFIG_DEFAULT, ...dictOption } as Required<Config>;
+  return treeMap(
+    dictData,
+    item => {
+      return {
+        ...item,
+        value: item[config.value],
+        label: item[config.label]
+      };
+    },
+    { childrenKey: config.children }
+  );
 }
 
-export function useDict(dictData?: DictData, dictOption?: Config, key?: string) {
+export function useDict(): DictStorage;
+export function useDict(key?: string, dictData?: DictData, dictOption?: Config): DictStorageItem;
+export function useDict(key?: string, dictData?: DictData, dictOption?: Config) {
   const config = { ...CONFIG_DEFAULT, ...dictOption } as Required<Config>;
+
   const useGlobalState = createGlobalState(() => {
     const data = ref<DictItem[]>([]);
     const isLoading = ref(false);
     const isFinished = ref(false);
-    const formatDictData = (d: DictItem[]) => {
-      return treeMap(d, item => {
-        return {
-          ...item,
-          value: item[config.value],
-          label: item[config.label]
-        };
-      });
-    };
     const execute = () => {
       if (dictData instanceof Array) {
-        data.value = formatDictData(dictData);
+        data.value = formatDict(dictData, config);
       } else if (dictData instanceof Function) {
         isLoading.value = true;
         isFinished.value = false;
         dictData(config.params)
           .then(res => {
-            data.value = formatDictData(get({ res }, config.res));
+            data.value = formatDict(get({ res }, config.res), config);
           })
           .finally(() => {
             isLoading.value = false;
@@ -65,6 +68,8 @@ export function useDict(dictData?: DictData, dictOption?: Config, key?: string) 
       dictStorage[key] = useGlobalState();
     }
     return dictStorage[key];
+  } else if (!key && !dictData) {
+    return dictStorage;
   } else {
     return useGlobalState();
   }

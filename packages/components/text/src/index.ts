@@ -15,7 +15,7 @@ export const DictText = defineComponent({
   name: "DictText",
   props: textProps,
   setup(props) {
-    const { data } = useDict(props.data, props.option, props.cache);
+    const { data } = useDict(props.cache, props.data, props.option);
     const { value, modelValue } = toRefs(props);
     const selectedLabel = useSelected(data, isVue2 ? value : modelValue, { returnLabel: true });
 

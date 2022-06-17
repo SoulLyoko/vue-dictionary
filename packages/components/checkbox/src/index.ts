@@ -23,7 +23,7 @@ export const DictCheckbox = defineComponent({
     const ElCheckbox = dynamicComponent("el-checkbox");
     const ElCheckboxButton = dynamicComponent("el-checkbox-button");
 
-    const { data } = useDict(props.data, props.option, props.cache);
+    const { data } = useDict(props.cache, props.data, props.option);
 
     return () =>
       h(

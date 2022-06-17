@@ -21,7 +21,7 @@ export const DictCascader = defineComponent({
   setup(props, { emit, attrs }) {
     const ElCascader = dynamicComponent("el-cascader");
 
-    const { data } = useDict(props.data, props.option, props.cache);
+    const { data } = useDict(props.cache, props.data, props.option);
 
     return () =>
       h(ElCascader, {

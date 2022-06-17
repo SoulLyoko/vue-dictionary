@@ -23,7 +23,7 @@ export const DictRadio = defineComponent({
     const ElRadio = dynamicComponent("el-radio");
     const ElRadioButton = dynamicComponent("el-radio-button");
 
-    const { data } = useDict(props.data, props.option, props.cache);
+    const { data } = useDict(props.cache, props.data, props.option);
 
     return () =>
       h(
