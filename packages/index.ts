@@ -1,4 +1,5 @@
 export { default } from "./install";
 
 export * from "./components";
-export { useDict, useSelected } from "./composables";
+export * from "./composables/dict";
+export * from "./composables/selected";
