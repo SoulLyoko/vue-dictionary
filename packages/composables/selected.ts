@@ -30,9 +30,9 @@ export function useSelected<T extends DictItem[]>(
     const isMultiple = Array.isArray(value);
     const filterItems = filterTree(data, item => {
       if (isMultiple) {
-        return value.some(e => e == item[config.value]);
+        return value.some(e => e === item[config.value]);
       } else {
-        return value == item[config.value];
+        return value === item[config.value];
       }
     });
     if (config.returnLabel) {
