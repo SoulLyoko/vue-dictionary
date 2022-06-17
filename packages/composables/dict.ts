@@ -8,8 +8,8 @@ import { get } from "lodash-unified";
 import { CONFIG_DEFAULT } from "../constants";
 import { treeMap } from "../utils";
 
-export interface DictStorageItem {
-  data: Ref<DictItem[] | undefined>;
+export interface DictStorageItem<T = DictItem[]> {
+  data: Ref<T>;
   isLoading: Ref<boolean>;
   isFinished: Ref<boolean>;
   execute: () => void;
@@ -19,7 +19,7 @@ export type DictStorage = Record<string, DictStorageItem>;
 
 export const dictStorage: DictStorage = {};
 
-export function formatDict(dictData: DictItem[], dictOption?: Config) {
+export function formatDict<T extends DictItem[]>(dictData: T, dictOption?: Config) {
   const config = { ...CONFIG_DEFAULT, ...dictOption } as Required<Config>;
   return treeMap(
     dictData,
@@ -35,12 +35,16 @@ export function formatDict(dictData: DictItem[], dictOption?: Config) {
 }
 
 export function useDict(): DictStorage;
-export function useDict(key?: string, dictData?: DictData, dictOption?: Config): DictStorageItem;
-export function useDict(key?: string, dictData?: DictData, dictOption?: Config) {
+export function useDict<T extends DictItem[]>(
+  key?: string,
+  dictData?: DictData,
+  dictOption?: Config
+): DictStorageItem<T>;
+export function useDict<T extends DictItem[]>(key?: string, dictData?: DictData, dictOption?: Config) {
   const config = { ...CONFIG_DEFAULT, ...dictOption } as Required<Config>;
 
   const useGlobalState = createGlobalState(() => {
-    const data = ref<DictItem[]>([]);
+    const data = ref([] as unknown as T);
     const isLoading = ref(false);
     const isFinished = ref(false);
     const execute = () => {
