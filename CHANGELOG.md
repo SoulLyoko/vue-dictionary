@@ -1,3 +1,12 @@
+# [2.0.0-beta.8](https://github.com/SoulLyoko/vue-dictionary/compare/v2.0.0-beta.7...v2.0.0-beta.8) (2022-06-17)
+
+
+### Bug Fixes
+
+* useDict type ([604135f](https://github.com/SoulLyoko/vue-dictionary/commit/604135ffcaa9fd46250b94879a86537318f2eee3))
+
+
+
 # [2.0.0-beta.7](https://github.com/SoulLyoko/vue-dictionary/compare/v2.0.0-beta.6...v2.0.0-beta.7) (2022-06-17)
 
 
