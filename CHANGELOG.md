@@ -1,3 +1,19 @@
+# [2.0.0-beta.6](https://github.com/SoulLyoko/vue-dictionary/compare/v2.0.0-beta.5...v2.0.0-beta.6) (2022-06-17)
+
+
+### Bug Fixes
+
+* component types ([f921bf0](https://github.com/SoulLyoko/vue-dictionary/commit/f921bf0cbb1aff71a5ac6f7288de71359a39930f))
+* useSelected filter stictly ([8483357](https://github.com/SoulLyoko/vue-dictionary/commit/8483357537dbbd053ff5f877cefbc69679fa06b9))
+
+
+### Features
+
+* support treeNode ([fdf20b4](https://github.com/SoulLyoko/vue-dictionary/commit/fdf20b415c8f75d1bd8b7ded8b086c02eb449f19))
+* switch ([324fa5c](https://github.com/SoulLyoko/vue-dictionary/commit/324fa5ce32d8cc482458b2e7ce04eb4e44b63733))
+
+
+
 # [2.0.0-beta.5](https://github.com/SoulLyoko/vue-dictionary/compare/v2.0.0-beta.4...v2.0.0-beta.5) (2022-06-16)
 
 
