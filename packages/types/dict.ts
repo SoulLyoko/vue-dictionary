@@ -1,6 +1,7 @@
 export interface DictItem {
   label?: string;
   value?: any;
+  children?: DictItem[];
   [x: string]: any;
 }
 

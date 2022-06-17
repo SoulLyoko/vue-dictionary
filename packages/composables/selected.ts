@@ -5,25 +5,30 @@ import { computed, isRef } from "vue-demi";
 import { isNil } from "lodash-unified";
 
 import { CONFIG_DEFAULT } from "../constants";
+import { filterTree } from "../utils";
 
 export interface UseSelectedConfig extends Config {
   returnLabel?: boolean;
 }
 
 export function useSelected<T extends DictItem[]>(
-  mbData: MaybeRef<T | undefined>,
-  mbValue: MaybeRef<DictValue | undefined>,
+  mbrData: MaybeRef<T | undefined>,
+  mbrValue: MaybeRef<DictValue | undefined>,
   inConfig?: UseSelectedConfig
 ) {
   const defaultConfig = { ...CONFIG_DEFAULT, returnLabel: false };
-  const config = { ...defaultConfig, ...inConfig } as Required<UseSelectedConfig>;
 
   const selectedItems = computed(() => {
-    const data = isRef(mbData) ? mbData.value : mbData;
-    const value = isRef(mbValue) ? mbValue.value : mbValue;
+    const config = { ...defaultConfig, ...inConfig } as Required<UseSelectedConfig>;
+
+    const data = isRef(mbrData) ? mbrData.value : mbrData;
+    const value = isRef(mbrValue) ? mbrValue.value : mbrValue;
+    if (isNil(value) || isNil(data)) {
+      return config.returnLabel ? "" : [];
+    }
+
     const isMultiple = Array.isArray(value);
-    if (isNil(value) || isNil(data)) return config.returnLabel ? "" : [];
-    const filterItems = data.filter(item => {
+    const filterItems = filterTree(data, item => {
       if (isMultiple) {
         return value.some(e => e == item[config.value]);
       } else {
@@ -33,6 +38,7 @@ export function useSelected<T extends DictItem[]>(
     if (config.returnLabel) {
       return filterItems.map(e => e[config.label]).join(",");
     }
+
     return isMultiple ? filterItems : filterItems[0];
   });
 

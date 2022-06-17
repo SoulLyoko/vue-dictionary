@@ -6,6 +6,7 @@ import { createGlobalState } from "@vueuse/core";
 import { get } from "lodash-unified";
 
 import { CONFIG_DEFAULT } from "../constants";
+import { treeMap } from "../utils";
 
 export interface DictStorageItem {
   data: Ref<DictItem[] | undefined>;
@@ -14,16 +15,24 @@ export interface DictStorageItem {
   execute: () => void;
 }
 
-export const dictStorage: Record<string, DictStorageItem> = {};
+export type DictStorage = Record<string, DictStorageItem>;
 
-export function useDict(dictData: DictData, dictOption?: Config, key?: string) {
+export const dictStorage: DictStorage = {};
+
+export function useDictStorage(): DictStorage;
+export function useDictStorage(key: string): DictStorageItem;
+export function useDictStorage(key?: string) {
+  return key ? dictStorage[key] : dictStorage;
+}
+
+export function useDict(dictData?: DictData, dictOption?: Config, key?: string) {
   const config = { ...CONFIG_DEFAULT, ...dictOption } as Required<Config>;
   const useGlobalState = createGlobalState(() => {
-    const data = ref<DictItem[]>();
+    const data = ref<DictItem[]>([]);
     const isLoading = ref(false);
     const isFinished = ref(false);
     const formatDictData = (d: DictItem[]) => {
-      return d.map(item => {
+      return treeMap(d, item => {
         return {
           ...item,
           value: item[config.value],
