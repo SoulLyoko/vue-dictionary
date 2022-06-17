@@ -1,3 +1,13 @@
+# [2.0.0-beta.7](https://github.com/SoulLyoko/vue-dictionary/compare/v2.0.0-beta.6...v2.0.0-beta.7) (2022-06-17)
+
+
+### Bug Fixes
+
+* useDict return dictStorage ([1d81209](https://github.com/SoulLyoko/vue-dictionary/commit/1d81209d49ab7e7872753c00bcde29423d7e2535))
+* useSelected types ([35905d3](https://github.com/SoulLyoko/vue-dictionary/commit/35905d34ab719f9639e7eaa59ae1e652056d4ab5))
+
+
+
 # [2.0.0-beta.6](https://github.com/SoulLyoko/vue-dictionary/compare/v2.0.0-beta.5...v2.0.0-beta.6) (2022-06-17)
 
 
