@@ -4,7 +4,7 @@ import { defineComponent, computed } from "vue-demi";
 
 import { fullProps, fullEmits, useListeners } from "~/constants";
 import { h } from "~/utils";
-import { DictCascader, DictCascaderPanel, DictSelect, DictRadio, DictCheckbox, DictText } from "../..";
+import { DictCascader, DictCascaderPanel, DictSelect, DictRadio, DictCheckbox, DictSwitch, DictText } from "../..";
 
 export type DictProps = PropTypes<typeof dictProps>;
 export type DictEmits = typeof dictEmits;
@@ -25,6 +25,7 @@ export const VDict = defineComponent({
       checkbox: DictCheckbox,
       radio: DictRadio,
       select: DictSelect,
+      switch: DictSwitch,
       text: DictText
     };
 

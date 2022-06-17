@@ -8,6 +8,8 @@
     <br />
     <v-dict v-model="dictValue" button type="radio" :data="dictDataArray" cache="test1"></v-dict>
     <br />
+    <v-dict v-model="dictValue" type="switch" :data="dictDataArray" cache="test1"></v-dict>
+    <br />
     <v-dict v-model="dictValue" type="text" :data="dictDataArray" cache="test1"></v-dict>
     <br />
     <br />
@@ -27,6 +29,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue-demi";
+// import { Close, Check } from "@element-plus/icons-vue";
 
 export default defineComponent({
   name: "App",
@@ -34,8 +37,8 @@ export default defineComponent({
     const dictValue = ref("");
     const dictValues = ref([]);
     const dictDataArray = [
-      { label: "1", value: "1" },
-      { label: "2", value: "2" }
+      { label: "1", value: "1", icon: "el-icon-close", color: "red" },
+      { label: "2", value: "2", icon: "el-icon-check", color: "green" }
     ];
     const dictDataPromiseFunction = () => {
       return new Promise(resolve => {
