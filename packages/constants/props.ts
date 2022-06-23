@@ -11,7 +11,7 @@ export const dictRestProps = {
   type: { type: String as PropType<DictComponentType>, default: "select" },
   data: { type: [Array, Function] as PropType<DictData>, default: () => [] },
   option: { type: Object as PropType<Config> },
-  cache: { type: String, default: "" }
+  code: { type: String, default: "" }
 };
 
 export const buttonProps = {

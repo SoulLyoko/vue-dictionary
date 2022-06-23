@@ -31,8 +31,8 @@ export const Dict = defineComponent({
     };
 
     const component = computed(() => componentMap[props.type]);
-    const option = usePropOption();
-    const { data } = useDict(props.cache, props.data, option.value);
+    const option = computed(() => ({ params: props.code, ...usePropOption().value }));
+    const { data } = useDict(props.code, props.data, option.value);
 
     return () =>
       h(component.value, {
