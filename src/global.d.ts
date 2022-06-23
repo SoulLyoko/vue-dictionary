@@ -1,6 +1,6 @@
 declare module "vue" {
   export interface GlobalComponents {
-    Dict: typeof import("vue-dictionary")["Dict"];
+    VDict: typeof import("vue-dictionary")["VDict"];
     DictCascader: typeof import("vue-dictionary")["DictCascader"];
     DictCascaderPanel: typeof import("vue-dictionary")["DictCascaderPanel"];
     DictCheckbox: typeof import("vue-dictionary")["DictCheckbox"];

@@ -4,7 +4,6 @@ import { defineComponent, computed } from "vue-demi";
 
 import { basicProps, basicEmits, useListeners } from "~/constants";
 import { h, dynamicComponent } from "~/utils";
-import { useDict } from "~/composables";
 
 export type SwitchProps = PropTypes<typeof switchProps>;
 export type SwitchEmits = typeof switchEmits;
@@ -22,7 +21,7 @@ export const DictSwitch = defineComponent({
     const ElSwitch = dynamicComponent("el-switch");
 
     const switchProps = computed(() => {
-      const [inactiveItem, activeItem] = props.data;
+      const [inactiveItem, activeItem] = props.data ?? [];
       return {
         inactiveText: inactiveItem?.label,
         inactiveValue: inactiveItem?.value,

@@ -105,7 +105,7 @@
 
 ### Features
 
-* dict,select,radio,check,text ([1c7bed7](https://github.com/SoulLyoko/vue-dictionary/commit/1c7bed70ba3670e7ef247b4c08b98371b219f65f))
+* v-dict,select,radio,check,text ([1c7bed7](https://github.com/SoulLyoko/vue-dictionary/commit/1c7bed70ba3670e7ef247b4c08b98371b219f65f))
 
 
 

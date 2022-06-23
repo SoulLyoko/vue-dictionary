@@ -2,28 +2,28 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
     <br />
-    <Dict v-model="dictValue" type="select" :data="dictDataArray" cache="test1"></Dict>
+    <v-dict v-model="dictValue" type="select" :data="dictDataArray" cache="test1"></v-dict>
     <br />
-    <Dict v-model="dictValue" type="radio" :data="dictDataArray" cache="test1"></Dict>
+    <v-dict v-model="dictValue" type="radio" :data="dictDataArray" cache="test1"></v-dict>
     <br />
-    <Dict v-model="dictValue" button type="radio" :data="dictDataArray" cache="test1"></Dict>
+    <v-dict v-model="dictValue" button type="radio" :data="dictDataArray" cache="test1"></v-dict>
     <br />
-    <Dict v-model="dictValue" type="switch" :data="dictDataArray" cache="test1"></Dict>
+    <v-dict v-model="dictValue" type="switch" :data="dictDataArray" cache="test1"></v-dict>
     <br />
-    <Dict v-model="dictValue" type="text" :data="dictDataArray" cache="test1"></Dict>
+    <v-dict v-model="dictValue" type="text" :data="dictDataArray" cache="test1"></v-dict>
     <br />
     <br />
-    <Dict v-model="dictValues" type="select" multiple :data="dictDataPromiseFunction" cache="test2"></Dict>
+    <v-dict v-model="dictValues" type="select" multiple :data="dictDataPromiseFunction" cache="test2"></v-dict>
     <br />
-    <Dict v-model="dictValues" type="checkbox" :data="dictDataPromiseFunction" cache="test2"></Dict>
+    <v-dict v-model="dictValues" type="checkbox" :data="dictDataPromiseFunction" cache="test2"></v-dict>
     <br />
-    <Dict v-model="dictValues" button type="checkbox" :data="dictDataPromiseFunction" cache="test2"></Dict>
+    <v-dict v-model="dictValues" button type="checkbox" :data="dictDataPromiseFunction" cache="test2"></v-dict>
     <br />
-    <Dict v-model="dictValues" type="text" :data="dictDataPromiseFunction" cache="test2"></Dict>
+    <v-dict v-model="dictValues" type="text" :data="dictDataPromiseFunction" cache="test2"></v-dict>
     <br />
-    <Dict v-model="cascaderDataValue" type="cascader" :data="cascaderData" cache="test3"></Dict>
+    <v-dict v-model="cascaderDataValue" type="cascader" :data="cascaderData" cache="test3"></v-dict>
     <br />
-    <Dict v-model="cascaderDataValue" type="cascader-panel" :data="cascaderData" cache="test3"></Dict>
+    <v-dict v-model="cascaderDataValue" type="cascader-panel" :data="cascaderData" cache="test3"></v-dict>
   </div>
 </template>
 

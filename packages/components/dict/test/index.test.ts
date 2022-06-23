@@ -1,10 +1,12 @@
 import { mount } from "@vue/test-utils";
 
-import { Dict } from "..";
+import { VDict } from "..";
 
-describe("Dict", () => {
+describe("VDict", () => {
   it("mount", () => {
-    const wrapper = mount(Dict);
+    const wrapper = mount(VDict, {
+      propsData: { data: [] }
+    });
     expect(wrapper.html()).toContain("el-select");
   });
 });

@@ -39,12 +39,12 @@ app.mount("#app");
 ```html
 <!-- App.vue -->
 <template>
-  <Dict type="select" :data="[]"></Dict>
+  <v-dict type="select" :data="[]"></v-dict>
   <!-- Same As -->
-  <DictSelect :data="[]"></DictSelect>
+  <dict-select :data="[]"></dict-select>
 </template>
 <script setup>
-  import { Dict, DictSelect } from "vue-dictionary";
+  import { VDict, DictSelect } from "vue-dictionary";
   import "vue-dictionary/es/styles/button.css";
 </script>
 ```

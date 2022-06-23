@@ -1,5 +1,5 @@
 <template>
-  <Dict v-model="value" :data="dictData"></Dict>
+  <v-dict v-model="value" :data="dictData"></v-dict>
 </template>
 
 <script setup lang="ts">

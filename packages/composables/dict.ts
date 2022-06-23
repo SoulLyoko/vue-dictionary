@@ -72,9 +72,9 @@ export function useDict<T extends DictItem[]>(key?: string, dictData?: DictData,
       dictStorage[key] = useGlobalState();
     }
     return dictStorage[key];
-  } else if (!key && !dictData) {
-    return dictStorage;
-  } else {
+  } else if (dictData) {
     return useGlobalState();
+  } else {
+    return dictStorage;
   }
 }

@@ -10,13 +10,13 @@ import { DictCascader, DictCascaderPanel, DictSelect, DictRadio, DictCheckbox, D
 export type DictProps = PropTypes<typeof dictProps>;
 export type DictEmits = typeof dictEmits;
 export type DictEmit = EmitFn<DictEmits>;
-export type DictInstance = InstanceType<typeof Dict>;
+export type DictInstance = InstanceType<typeof VDict>;
 
 export const dictProps = fullProps;
 export const dictEmits = fullEmits;
 
-export const Dict = defineComponent({
-  name: "Dict",
+export const VDict = defineComponent({
+  name: "VDict",
   props: dictProps,
   emits: dictEmits,
   setup(props, { emit, attrs }) {
