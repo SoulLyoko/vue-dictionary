@@ -16,7 +16,8 @@ const Components = [
       { text: "Select", link: "/components/select/demo/index" },
       { text: "Checkbox", link: "/components/checkbox/demo/index" },
       { text: "Radio", link: "/components/radio/demo/index" },
-      { text: "Switch", link: "/components/switch/demo/index" }
+      { text: "Switch", link: "/components/switch/demo/index" },
+      { text: "Cascader", link: "/components/cascader/demo/index" }
     ]
   }
 ];
