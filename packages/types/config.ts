@@ -4,4 +4,5 @@ export interface Config {
   children?: string;
   res?: string;
   params?: any;
+  request?: (params?: any) => Promise<unknown>;
 }
