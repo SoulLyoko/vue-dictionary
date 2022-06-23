@@ -11,7 +11,10 @@ const Guide = [
 const Components = [
   {
     text: "Components",
-    children: [{ text: "Dict", link: "/components/dict/demo/index" }]
+    children: [
+      { text: "Dict", link: "/components/dict/demo/index" },
+      { text: "Select", link: "/components/select/demo/index" }
+    ]
   }
 ];
 
