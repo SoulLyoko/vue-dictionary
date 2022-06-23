@@ -1,3 +1,12 @@
+# [2.0.0-beta.10](https://github.com/SoulLyoko/vue-dictionary/compare/v2.0.0-beta.9...v2.0.0-beta.10) (2022-06-23)
+
+
+### Features
+
+* option.request ([d3837c0](https://github.com/SoulLyoko/vue-dictionary/commit/d3837c0f4fac213dfe1ecd2ac6585ad587fb13fd))
+
+
+
 # [2.0.0-beta.9](https://github.com/SoulLyoko/vue-dictionary/compare/v2.0.0-beta.8...v2.0.0-beta.9) (2022-06-23)
 
 
