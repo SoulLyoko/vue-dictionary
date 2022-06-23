@@ -1,3 +1,13 @@
+# [2.0.0-beta.9](https://github.com/SoulLyoko/vue-dictionary/compare/v2.0.0-beta.8...v2.0.0-beta.9) (2022-06-23)
+
+
+### Bug Fixes
+
+* `props.cache` change to `props.code` ([00fcacd](https://github.com/SoulLyoko/vue-dictionary/commit/00fcacd24a33f8db59d3144f7fd7bf57d576e073))
+* build types ([fa0c6e8](https://github.com/SoulLyoko/vue-dictionary/commit/fa0c6e889878509962e43048da99a64cf11c51aa))
+
+
+
 # [2.0.0-beta.8](https://github.com/SoulLyoko/vue-dictionary/compare/v2.0.0-beta.7...v2.0.0-beta.8) (2022-06-17)
 
 
