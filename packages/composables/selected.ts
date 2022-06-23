@@ -8,6 +8,7 @@ import { isNil } from "lodash-unified";
 import { CONFIG_DEFAULT } from "../constants";
 import { filterTree } from "../utils";
 
+// #region snippet
 export interface UseSelectedConfig<L> {
   label?: string;
   value?: string;
@@ -47,6 +48,7 @@ export function useSelected(
   selectedValue: SelectedValue<DictValue>,
   config?: UseSelectedConfig<boolean>
 ): useSelectedReturn<DictItem | DictItem[] | string>;
+// #endregion snippet
 
 export function useSelected<L extends boolean>(
   selectedData: SelectedData,

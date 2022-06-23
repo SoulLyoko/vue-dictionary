@@ -8,7 +8,7 @@ const Guide = [
   { text: "Start", link: "/guide/start" },
   { text: "Changelog", link: "/guide/changelog" }
 ];
-const Components = [
+const Docs = [
   {
     text: "Components",
     children: [
@@ -19,9 +19,15 @@ const Components = [
       { text: "Switch", link: "/components/switch/demo/index" },
       { text: "Cascader", link: "/components/cascader/demo/index" }
     ]
+  },
+  {
+    text: "Composables",
+    children: [
+      { text: "useDict", link: "/composables/demo/useDict" },
+      { text: "useSelected", link: "/composables/demo/useSelected" }
+    ]
   }
 ];
-
 export default defineConfig({
   base: `/${pkg.name}/`,
   lang: "zh-CN",
@@ -32,11 +38,12 @@ export default defineConfig({
     repo: "SoulLyoko/vue-dictionary",
     nav: [
       { text: "Guide", link: Guide[0].link },
-      { text: "Components", link: Components[0].children[0].link }
+      { text: "Docs", link: Docs[0].children[0].link }
     ],
     sidebar: {
       "/guide": Guide,
-      "/components": Components
+      "/components": Docs,
+      "/composables": Docs
     }
   },
   vite: {
