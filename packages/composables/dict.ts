@@ -27,7 +27,8 @@ export function formatDict<T extends DictItem[]>(dictData: T, dictOption?: Confi
       return {
         ...item,
         value: item[config.value],
-        label: item[config.label]
+        label: item[config.label],
+        children: item[config.children]
       };
     },
     { childrenKey: config.children }
