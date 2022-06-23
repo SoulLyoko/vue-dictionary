@@ -9,7 +9,8 @@ import sass from "sass";
 
 function buildTypes() {
   console.log("Building types...");
-  const run = outDir => `vue-tsc --project tsconfig.d.json --declaration --emitDeclarationOnly --outDir ${outDir}`;
+  const run = outDir =>
+    `vue-tsc -p tsconfig.${outDir}.json -d --emitDeclarationOnly && tsc-alias -p tsconfig.${outDir}.json`;
   execSync(run("es"));
   execSync(run("lib"));
 }
