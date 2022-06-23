@@ -34,8 +34,8 @@
 
 支持 el-checkbox 所有参数和事件
 
-- [element-ui#checkbox](https://element.eleme.cn/#/zh-CN/component/checkbox#checkbox-attributes)
-- [element-plus#checkbox](https://element-plus.gitee.io/zh-CN/component/checkbox.html#checkbox-%E5%B1%9E%E6%80%A7)
+- [element-ui#checkbox](https://element.eleme.cn/#/zh-CN/component/checkbox#checkbox-group-attributes)
+- [element-plus#checkbox](https://element-plus.gitee.io/zh-CN/component/checkbox.html#checkbox-group-%E5%B1%9E%E6%80%A7)
 
 | 参数    | 说明                                      | 类型                    | 可选值 | 默认值 |
 | ------- | ----------------------------------------- | ----------------------- | ------ | ------ |

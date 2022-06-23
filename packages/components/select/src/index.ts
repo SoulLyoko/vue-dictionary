@@ -1,7 +1,7 @@
 import type { PropTypes, EmitFn } from "~/types";
 
 import { defineComponent } from "vue-demi";
-import { pick, omit } from "lodash-unified";
+import { pick } from "lodash-unified";
 
 import { basicProps, basicEmits, selectRestEmits, useListeners } from "~/constants";
 import { h, dynamicComponent } from "~/utils";
