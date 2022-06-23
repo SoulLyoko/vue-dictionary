@@ -3,7 +3,7 @@ import type { PropTypes, EmitFn } from "~/types";
 import { defineComponent } from "vue-demi";
 import { pick } from "lodash-unified";
 
-import { basicProps, buttonProps, basicEmits, useListeners } from "~/constants";
+import { basicProps, buttonBorderProps, basicEmits, useListeners } from "~/constants";
 import { h, dynamicComponent } from "~/utils";
 
 export type CheckboxProps = PropTypes<typeof checkboxProps>;
@@ -11,7 +11,7 @@ export type CheckboxEmits = typeof checkboxEmits;
 export type CheckboxEmitFn = EmitFn<CheckboxEmits>;
 export type CheckboxInstance = InstanceType<typeof DictCheckbox>;
 
-export const checkboxProps = { ...basicProps, ...buttonProps };
+export const checkboxProps = { ...basicProps, ...buttonBorderProps };
 export const checkboxEmits = basicEmits;
 
 export const DictCheckbox = defineComponent({
@@ -36,7 +36,7 @@ export const DictCheckbox = defineComponent({
             h(
               props.button ? ElCheckboxButton : ElCheckbox,
               {
-                props: { ...item, label: item.value }
+                props: { label: item.value, border: props.border, ...item }
               },
               () => item.label
             )

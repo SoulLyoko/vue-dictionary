@@ -36,6 +36,7 @@
 | option  | 字典配置，详见下方说明                            | -                                 | -                                                                     | -              |
 | code    | 缓存字典数据的 key，并作为 data(params)的默认参数 | string                            | -                                                                     |
 | button  | 当 type 为 radio 或 checkbox 时，是否显示按钮     | boolean                           | -                                                                     |
+| border  | 当 type 为 radio 或 checkbox 时，是否显示边框     | boolean                           | -                                                                     |
 
 ## Option
 

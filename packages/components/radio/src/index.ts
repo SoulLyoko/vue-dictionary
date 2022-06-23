@@ -3,7 +3,7 @@ import type { PropTypes, EmitFn } from "~/types";
 import { defineComponent } from "vue-demi";
 import { pick } from "lodash-unified";
 
-import { basicProps, buttonProps, basicEmits, useListeners } from "~/constants";
+import { basicProps, buttonBorderProps, basicEmits, useListeners } from "~/constants";
 import { h, dynamicComponent } from "~/utils";
 
 export type RadioProps = PropTypes<typeof radioProps>;
@@ -11,7 +11,7 @@ export type RadioEmits = typeof radioEmits;
 export type RadioEmitFn = EmitFn<RadioEmits>;
 export type RadioInstance = InstanceType<typeof DictRadio>;
 
-export const radioProps = { ...basicProps, ...buttonProps };
+export const radioProps = { ...basicProps, ...buttonBorderProps };
 export const radioEmits = basicEmits;
 
 export const DictRadio = defineComponent({
@@ -36,7 +36,7 @@ export const DictRadio = defineComponent({
             h(
               props.button ? ElRadioButton : ElRadio,
               {
-                props: { ...item, label: item.value }
+                props: { label: item.value, border: props.border, ...item }
               },
               () => item.label
             )

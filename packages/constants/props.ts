@@ -14,12 +14,13 @@ export const dictRestProps = {
   code: { type: String }
 };
 
-export const buttonProps = {
-  button: { type: Boolean }
+export const buttonBorderProps = {
+  button: { type: Boolean },
+  border: { type: Boolean }
 };
 
 export const fullProps = {
   ...basicProps,
   ...dictRestProps,
-  ...buttonProps
+  ...buttonBorderProps
 };
