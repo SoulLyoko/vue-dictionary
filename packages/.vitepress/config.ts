@@ -14,7 +14,8 @@ const Components = [
     children: [
       { text: "Dict", link: "/components/dict/demo/index" },
       { text: "Select", link: "/components/select/demo/index" },
-      { text: "Checkbox", link: "/components/checkbox/demo/index" }
+      { text: "Checkbox", link: "/components/checkbox/demo/index" },
+      { text: "Radio", link: "/components/radio/demo/index" }
     ]
   }
 ];
