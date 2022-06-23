@@ -11,9 +11,9 @@ const dictDataPromise = () => {
     setTimeout(() => {
       resolve({
         data: [
-          { label: "1", value: "1" },
-          { label: "2", value: "2" },
-          { label: "3", value: "3" }
+          { label: "apple", value: "1" },
+          { label: "banana", value: "2" },
+          { label: "cherry", value: "3" }
         ]
       });
     }, 1000);
