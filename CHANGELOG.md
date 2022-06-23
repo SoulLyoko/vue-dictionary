@@ -1,3 +1,18 @@
+# [2.0.0](https://github.com/SoulLyoko/vue-dictionary/compare/v2.0.0-beta.10...v2.0.0) (2022-06-23)
+
+
+### Bug Fixes
+
+* valid props ([4591ed5](https://github.com/SoulLyoko/vue-dictionary/commit/4591ed5df832b963a10d99b3fe213598437743f5))
+
+
+### Features
+
+* dict-select support group ([58f77f4](https://github.com/SoulLyoko/vue-dictionary/commit/58f77f47f5a5a9d73fffe6275bf01378035bc7fb))
+* suport border prop ([4d98cd2](https://github.com/SoulLyoko/vue-dictionary/commit/4d98cd2f08bb06ca1ba35bc9cc541ad5464631e0))
+
+
+
 # [2.0.0-beta.10](https://github.com/SoulLyoko/vue-dictionary/compare/v2.0.0-beta.9...v2.0.0-beta.10) (2022-06-23)
 
 
