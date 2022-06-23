@@ -4,7 +4,6 @@ import { defineComponent } from "vue-demi";
 
 import { basicProps, basicEmits, selectRestEmits, cascaderRestEmits, useListeners } from "~/constants";
 import { h, dynamicComponent } from "~/utils";
-import { useDict } from "~/composables";
 
 export type CascaderProps = PropTypes<typeof cascaderProps>;
 export type CascaderEmits = typeof cascaderEmits;
@@ -21,12 +20,10 @@ export const DictCascader = defineComponent({
   setup(props, { emit, attrs }) {
     const ElCascader = dynamicComponent("el-cascader");
 
-    const { data } = useDict(props.cache, props.data, props.option);
-
     return () =>
       h(ElCascader, {
         props: {
-          options: data.value,
+          options: props.data,
           ...props,
           ...attrs
         },

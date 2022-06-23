@@ -4,7 +4,6 @@ import { defineComponent } from "vue-demi";
 
 import { basicProps, buttonProps, basicEmits, useListeners } from "~/constants";
 import { h, dynamicComponent } from "~/utils";
-import { useDict } from "~/composables";
 
 export type CheckboxProps = PropTypes<typeof checkboxProps>;
 export type CheckboxEmits = typeof checkboxEmits;
@@ -23,8 +22,6 @@ export const DictCheckbox = defineComponent({
     const ElCheckbox = dynamicComponent("el-checkbox");
     const ElCheckboxButton = dynamicComponent("el-checkbox-button");
 
-    const { data } = useDict(props.cache, props.data, props.option);
-
     return () =>
       h(
         ElCheckboxGroup,
@@ -34,7 +31,7 @@ export const DictCheckbox = defineComponent({
           on: useListeners(emit, checkboxEmits)
         },
         () =>
-          data.value?.map(item =>
+          props.data?.map(item =>
             h(
               props.button ? ElCheckboxButton : ElCheckbox,
               {

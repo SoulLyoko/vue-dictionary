@@ -7,10 +7,10 @@ export * from "./select";
 export * from "./switch";
 export * from "./text";
 
-import { VDict, DictCascader, DictCascaderPanel, DictCheckbox, DictRadio, DictSelect, DictSwitch, DictText } from ".";
+import { Dict, DictCascader, DictCascaderPanel, DictCheckbox, DictRadio, DictSelect, DictSwitch, DictText } from ".";
 
 export default {
-  VDict,
+  Dict,
   DictCascader,
   DictCascaderPanel,
   DictCheckbox,

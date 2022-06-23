@@ -4,7 +4,6 @@ import { defineComponent } from "vue-demi";
 
 import { basicProps, buttonProps, basicEmits, useListeners } from "~/constants";
 import { h, dynamicComponent } from "~/utils";
-import { useDict } from "~/composables";
 
 export type RadioProps = PropTypes<typeof radioProps>;
 export type RadioEmits = typeof radioEmits;
@@ -23,8 +22,6 @@ export const DictRadio = defineComponent({
     const ElRadio = dynamicComponent("el-radio");
     const ElRadioButton = dynamicComponent("el-radio-button");
 
-    const { data } = useDict(props.cache, props.data, props.option);
-
     return () =>
       h(
         ElRadioGroup,
@@ -34,7 +31,7 @@ export const DictRadio = defineComponent({
           on: useListeners(emit, radioEmits)
         },
         () =>
-          data.value?.map(item =>
+          props.data?.map(item =>
             h(
               props.button ? ElRadioButton : ElRadio,
               {

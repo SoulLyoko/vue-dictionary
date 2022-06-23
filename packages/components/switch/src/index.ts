@@ -21,21 +21,19 @@ export const DictSwitch = defineComponent({
   setup(props, { emit, attrs }) {
     const ElSwitch = dynamicComponent("el-switch");
 
-    const { data } = useDict(props.cache, props.data, props.option);
-
     const switchProps = computed(() => {
-      const [inactiveItem, activeItem] = data.value ?? [];
+      const [inactiveItem, activeItem] = props.data;
       return {
         inactiveText: inactiveItem?.label,
         inactiveValue: inactiveItem?.value,
         inactiveColor: inactiveItem?.color,
         inactiveIcon: inactiveItem?.icon,
-        inactiveIconClass: inactiveItem?.icon,
+        inactiveIconClass: inactiveItem?.icon, // element-ui
         activeText: activeItem?.label,
         activeValue: activeItem?.value,
         activeColor: activeItem?.color,
         activeIcon: activeItem?.icon,
-        activeIconClass: activeItem?.icon
+        activeIconClass: activeItem?.icon // element-ui
       };
     });
 

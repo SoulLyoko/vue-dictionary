@@ -1,8 +1,8 @@
 <div align="center">
 <h3>VueDictionary</h3>
-<span>A template for building Vue components library</span> 
+<span>一个后台管理系统通用的字典数据组件</span> 
 <br>
-<a  href="https://soullyoko.github.io/vue-dictionary/">Docs</a>
+<a  href="https://soullyoko.github.io/vue-dictionary/">文档 Docs</a>
 </div>
 
 # Directory

@@ -1,8 +1,8 @@
 <template>
-  <v-dict v-model="type" type="radio" :data="typeDict" button @change="typeChange"></v-dict>
+  <Dict v-model="type" type="radio" :data="typeDict" button @change="typeChange"></Dict>
   <br />
   <br />
-  <v-dict v-model="value" :type="type" :data="dictData"></v-dict>
+  <Dict v-model="value" :type="type" :data="dictData"></Dict>
 </template>
 
 <script setup lang="ts">

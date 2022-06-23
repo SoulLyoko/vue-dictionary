@@ -4,7 +4,6 @@ import { defineComponent } from "vue-demi";
 
 import { basicProps, basicEmits, selectRestEmits, useListeners } from "~/constants";
 import { h, dynamicComponent } from "~/utils";
-import { useDict } from "~/composables";
 
 export type SelectProps = PropTypes<typeof selectProps>;
 export type SelectEmits = typeof selectEmits;
@@ -22,8 +21,6 @@ export const DictSelect = defineComponent({
     const ElSelect = dynamicComponent("el-select");
     const ElOption = dynamicComponent("el-option");
 
-    const { data } = useDict(props.cache, props.data, props.option);
-
     return () =>
       h(
         ElSelect,
@@ -32,7 +29,7 @@ export const DictSelect = defineComponent({
           attrs: { ref: "selectRef" },
           on: useListeners(emit, selectEmits)
         },
-        () => data.value?.map(item => h(ElOption, { props: item }))
+        () => props.data?.map(item => h(ElOption, { props: item }))
       );
   }
 });
