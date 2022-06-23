@@ -1,6 +1,7 @@
 import type { PropTypes, EmitFn } from "~/types";
 
 import { defineComponent } from "vue-demi";
+import { pick } from "lodash-unified";
 
 import { basicProps, buttonProps, basicEmits, useListeners } from "~/constants";
 import { h, dynamicComponent } from "~/utils";
@@ -26,7 +27,7 @@ export const DictCheckbox = defineComponent({
       h(
         ElCheckboxGroup,
         {
-          props: { ...props, ...attrs },
+          props: { ...pick(props, "value", "modelValue"), ...attrs },
           attrs: { ref: "checkboxRef" },
           on: useListeners(emit, checkboxEmits)
         },

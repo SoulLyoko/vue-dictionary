@@ -24,12 +24,15 @@ export function formatDict<T extends DictItem[]>(dictData: T, dictOption?: Confi
   return treeMap(
     dictData,
     item => {
-      return {
+      const result = {
         ...item,
         value: item[config.value],
-        label: item[config.label],
-        children: item[config.children]
+        label: item[config.label]
       };
+      if (item[config.children]) {
+        item.children = item[config.children];
+      }
+      return result;
     },
     { childrenKey: config.children }
   );

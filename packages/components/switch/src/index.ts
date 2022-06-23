@@ -1,6 +1,7 @@
 import type { PropTypes, EmitFn } from "~/types";
 
 import { defineComponent, computed } from "vue-demi";
+import { pick } from "lodash-unified";
 
 import { basicProps, basicEmits, useListeners } from "~/constants";
 import { h, dynamicComponent } from "~/utils";
@@ -38,7 +39,7 @@ export const DictSwitch = defineComponent({
 
     return () =>
       h(ElSwitch, {
-        props: { ...switchProps.value, ...props, ...attrs },
+        props: { ...switchProps.value, ...pick(props, "value", "modelValue"), ...attrs },
         attrs: { ref: "switchRef" },
         on: useListeners(emit, switchEmits)
       });

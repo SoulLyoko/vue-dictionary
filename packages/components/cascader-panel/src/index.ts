@@ -1,6 +1,7 @@
 import type { PropTypes, EmitFn } from "~/types";
 
 import { defineComponent } from "vue-demi";
+import { pick } from "lodash-unified";
 
 import { basicProps, basicEmits, cascaderRestEmits, useListeners } from "~/constants";
 import { h, dynamicComponent } from "~/utils";
@@ -24,7 +25,7 @@ export const DictCascaderPanel = defineComponent({
       h(ElCascaderPanel, {
         props: {
           options: props.data,
-          ...props,
+          ...pick(props, "value", "modelValue"),
           ...attrs
         },
         attrs: { ref: "cascaderPanelRef" },
