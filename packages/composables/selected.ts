@@ -9,12 +9,12 @@ import { CONFIG_DEFAULT } from "../constants";
 import { filterTree } from "../utils";
 
 // #region snippet
-export interface UseSelectedConfig<L> {
+export type UseSelectedConfig<L> = MaybeRef<{
   label?: string;
   value?: string;
   children?: string;
   returnLabel?: L;
-}
+}>;
 export type SelectedData = MaybeRef<DictItem[] | undefined>;
 export type SelectedValue<T> = MaybeRef<T | undefined>;
 export type SingleValue = SelectedValue<boolean | string | number>;
@@ -58,7 +58,7 @@ export function useSelected<L extends boolean>(
   const defaultConfig = { ...CONFIG_DEFAULT, returnLabel: false };
 
   const selectedItems = computed(() => {
-    const config = { ...defaultConfig, ...inConfig } as Required<UseSelectedConfig<L>>;
+    const config = { ...defaultConfig, ...(isRef(inConfig) ? inConfig.value : inConfig) };
 
     const data = isRef(selectedData) ? selectedData.value : selectedData;
     const value = isRef(selectedValue) ? selectedValue.value : selectedValue;
@@ -71,15 +71,15 @@ export function useSelected<L extends boolean>(
       data,
       item => {
         if (isMultiple) {
-          return value.some(e => e === item[config.value]);
+          return value.some(e => e === item[config.value!]);
         } else {
-          return value === item[config.value];
+          return value === item[config.value!];
         }
       },
       { childrenKey: config.children }
     );
     if (config.returnLabel) {
-      return filterItems.map(e => e[config.label]).join(",");
+      return filterItems.map(e => e[config.label!]).join(",");
     }
 
     return isMultiple ? filterItems : filterItems[0];

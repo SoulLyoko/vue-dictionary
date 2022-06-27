@@ -1,9 +1,9 @@
-import type { PropTypes, EmitFn } from "~/types";
+import type { PropTypes, EmitFn, DictValue } from "~/types";
 
 import { defineComponent, computed } from "vue-demi";
 
 import { fullProps, fullEmits, useListeners } from "~/constants";
-import { useDict, usePropOption } from "~/composables";
+import { useDict, usePropOption, useSelected } from "~/composables";
 import { h } from "~/utils";
 import { DictCascader, DictCascaderPanel, DictSelect, DictRadio, DictCheckbox, DictSwitch, DictText } from "../..";
 
@@ -34,11 +34,16 @@ export const VDict = defineComponent({
     const option = computed(() => ({ params: props.code, ...usePropOption().value }));
     const { data } = useDict(props.code, props.data ?? option.value.request, option.value);
 
+    function onChange(val: DictValue) {
+      const selected = useSelected(data, val, option);
+      emit("change", selected.value);
+    }
+
     return () =>
       h(component.value, {
         props: { ...props, data: data.value },
         attrs: { ref: "dictRef", ...attrs },
-        on: useListeners(emit, dictEmits)
+        on: { ...useListeners(emit, dictEmits), change: onChange }
       });
   }
 });
