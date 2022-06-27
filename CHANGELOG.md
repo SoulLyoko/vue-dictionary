@@ -1,3 +1,13 @@
+## [2.0.1](https://github.com/SoulLyoko/vue-dictionary/compare/v2.0.0...v2.0.1) (2022-06-27)
+
+
+### Features
+
+* 字典onChange事件 ([8d88fff](https://github.com/SoulLyoko/vue-dictionary/commit/8d88fff49f135809288cac7fe7fbc167e4782f80))
+* export types ([68bfca3](https://github.com/SoulLyoko/vue-dictionary/commit/68bfca3240d5b1e7f4b17c501df1677a496a2589))
+
+
+
 # [2.0.0](https://github.com/SoulLyoko/vue-dictionary/compare/v2.0.0-beta.10...v2.0.0) (2022-06-23)
 
 
