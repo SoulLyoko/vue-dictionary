@@ -6,21 +6,21 @@
     <title>useSelected | VueDictionary</title>
     <meta name="description" content="vue-dictionary">
     <link rel="stylesheet" href="/vue-dictionary/assets/style.19e70023.css">
-    <link rel="modulepreload" href="/vue-dictionary/assets/chunks/CHANGELOG.c8b3e7e6.js">
-    <link rel="modulepreload" href="/vue-dictionary/assets/chunks/README.87f5a50c.js">
-    <link rel="modulepreload" href="/vue-dictionary/assets/index.md.05d7be4f.js">
-    <link rel="modulepreload" href="/vue-dictionary/assets/guide_changelog.md.70e75dda.js">
-    <link rel="modulepreload" href="/vue-dictionary/assets/guide_start.md.908c9e65.js">
-    <link rel="modulepreload" href="/vue-dictionary/assets/composables_demo_useDict.md.fac05cc2.js">
-    <link rel="modulepreload" href="/vue-dictionary/assets/composables_demo_useSelected.md.c5318174.js">
-    <link rel="modulepreload" href="/vue-dictionary/assets/components_cascader_demo_index.md.6135c50b.js">
-    <link rel="modulepreload" href="/vue-dictionary/assets/components_checkbox_demo_index.md.176ca9af.js">
-    <link rel="modulepreload" href="/vue-dictionary/assets/components_dict_demo_index.md.5e2e24e5.js">
-    <link rel="modulepreload" href="/vue-dictionary/assets/components_radio_demo_index.md.4189f2c0.js">
-    <link rel="modulepreload" href="/vue-dictionary/assets/components_select_demo_index.md.74be2077.js">
-    <link rel="modulepreload" href="/vue-dictionary/assets/components_switch_demo_index.md.95fafa1e.js">
-    <link rel="modulepreload" href="/vue-dictionary/assets/app.b74653d2.js">
-    <link rel="modulepreload" href="/vue-dictionary/assets/composables_demo_useSelected.md.c5318174.lean.js">
+    <link rel="modulepreload" href="/vue-dictionary/assets/chunks/CHANGELOG.ea42eb0f.js">
+    <link rel="modulepreload" href="/vue-dictionary/assets/chunks/README.515e62af.js">
+    <link rel="modulepreload" href="/vue-dictionary/assets/index.md.a123241e.js">
+    <link rel="modulepreload" href="/vue-dictionary/assets/guide_changelog.md.9410ea4e.js">
+    <link rel="modulepreload" href="/vue-dictionary/assets/guide_start.md.bf01419b.js">
+    <link rel="modulepreload" href="/vue-dictionary/assets/composables_demo_useDict.md.721d2814.js">
+    <link rel="modulepreload" href="/vue-dictionary/assets/composables_demo_useSelected.md.3884ab5c.js">
+    <link rel="modulepreload" href="/vue-dictionary/assets/components_cascader_demo_index.md.4b7fafaa.js">
+    <link rel="modulepreload" href="/vue-dictionary/assets/components_checkbox_demo_index.md.467b3349.js">
+    <link rel="modulepreload" href="/vue-dictionary/assets/components_dict_demo_index.md.e40b74b6.js">
+    <link rel="modulepreload" href="/vue-dictionary/assets/components_radio_demo_index.md.fbc2b2b4.js">
+    <link rel="modulepreload" href="/vue-dictionary/assets/components_select_demo_index.md.7d21af49.js">
+    <link rel="modulepreload" href="/vue-dictionary/assets/components_switch_demo_index.md.ef5e5e56.js">
+    <link rel="modulepreload" href="/vue-dictionary/assets/app.bda6e4b1.js">
+    <link rel="modulepreload" href="/vue-dictionary/assets/composables_demo_useSelected.md.3884ab5c.lean.js">
     
     <meta name="twitter:title" content="useSelected | VueDictionary">
   <meta property="og:title" content="useSelected | VueDictionary">
@@ -58,12 +58,12 @@ value<span class="token punctuation">.</span>value <span class="token operator">
 <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>selectedLabel<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &quot;apple&quot;</span>
 <span class="token keyword">const</span> selectedLabels <span class="token operator">=</span> <span class="token function">useSelected</span><span class="token punctuation">(</span>dictData<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">&quot;1&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;2&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> returnLabel<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>selectedLabels<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &quot;apple,banana&quot;</span>
-</code></pre></div><h2 id="类型定义" tabindex="-1">类型定义 <a class="header-anchor" href="#类型定义" aria-hidden="true">#</a></h2><div class="language-ts"><pre><code><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">UseSelectedConfig<span class="token operator">&lt;</span><span class="token constant">L</span><span class="token operator">&gt;</span></span> <span class="token punctuation">{</span>
+</code></pre></div><h2 id="类型定义" tabindex="-1">类型定义 <a class="header-anchor" href="#类型定义" aria-hidden="true">#</a></h2><div class="language-ts"><pre><code><span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">UseSelectedConfig<span class="token operator">&lt;</span><span class="token constant">L</span><span class="token operator">&gt;</span></span> <span class="token operator">=</span> MaybeRef<span class="token operator">&lt;</span><span class="token punctuation">{</span>
   label<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
   value<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
   children<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
   returnLabel<span class="token operator">?</span><span class="token operator">:</span> <span class="token constant">L</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
 <span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">SelectedData</span> <span class="token operator">=</span> MaybeRef<span class="token operator">&lt;</span>DictItem<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">|</span> <span class="token keyword">undefined</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
 <span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">SelectedValue<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;</span></span> <span class="token operator">=</span> MaybeRef<span class="token operator">&lt;</span><span class="token constant">T</span> <span class="token operator">|</span> <span class="token keyword">undefined</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
 <span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">SingleValue</span> <span class="token operator">=</span> SelectedValue<span class="token operator">&lt;</span><span class="token builtin">boolean</span> <span class="token operator">|</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token builtin">number</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
@@ -97,8 +97,8 @@ value<span class="token punctuation">.</span>value <span class="token operator">
   selectedValue<span class="token operator">:</span> SelectedValue<span class="token operator">&lt;</span>DictValue<span class="token operator">&gt;</span><span class="token punctuation">,</span>
   config<span class="token operator">?</span><span class="token operator">:</span> UseSelectedConfig<span class="token operator">&lt;</span><span class="token builtin">boolean</span><span class="token operator">&gt;</span>
 <span class="token punctuation">)</span><span class="token operator">:</span> useSelectedReturn<span class="token operator">&lt;</span>DictItem <span class="token operator">|</span> DictItem<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">|</span> <span class="token builtin">string</span><span class="token operator">&gt;</span><span class="token punctuation">;</span></code></pre></div></div></div><footer class="page-footer" data-v-7eddb2c4 data-v-07c132fc><div class="edit" data-v-07c132fc><div class="edit-link" data-v-07c132fc data-v-1ed99556><!----></div></div><div class="updated" data-v-07c132fc><!----></div></footer><div class="next-and-prev-link" data-v-7eddb2c4 data-v-38ede35f><div class="container" data-v-38ede35f><div class="prev" data-v-38ede35f><a class="link" href="/vue-dictionary/composables/demo/useDict" data-v-38ede35f><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="icon icon-prev" data-v-38ede35f><path d="M19,11H7.4l5.3-5.3c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-7,7c-0.1,0.1-0.2,0.2-0.2,0.3c-0.1,0.2-0.1,0.5,0,0.8c0.1,0.1,0.1,0.2,0.2,0.3l7,7c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3c0.4-0.4,0.4-1,0-1.4L7.4,13H19c0.6,0,1-0.4,1-1S19.6,11,19,11z"></path></svg><span class="text" data-v-38ede35f>useDict</span></a></div><div class="next" data-v-38ede35f><!----></div></div></div><!--[--><!--]--></div></main></div><!----><!--]--></div>
-    <script>__VP_HASH_MAP__ = JSON.parse("{\"components_cascader_demo_index.md\":\"6135c50b\",\"components_checkbox_demo_index.md\":\"176ca9af\",\"components_dict_demo_index.md\":\"5e2e24e5\",\"components_radio_demo_index.md\":\"4189f2c0\",\"components_select_demo_index.md\":\"74be2077\",\"components_switch_demo_index.md\":\"95fafa1e\",\"composables_demo_usedict.md\":\"fac05cc2\",\"composables_demo_useselected.md\":\"c5318174\",\"guide_changelog.md\":\"70e75dda\",\"guide_start.md\":\"908c9e65\",\"index.md\":\"05d7be4f\"}")</script>
-    <script type="module" async src="/vue-dictionary/assets/app.b74653d2.js"></script>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"components_cascader_demo_index.md\":\"4b7fafaa\",\"components_checkbox_demo_index.md\":\"467b3349\",\"components_dict_demo_index.md\":\"e40b74b6\",\"components_radio_demo_index.md\":\"fbc2b2b4\",\"components_select_demo_index.md\":\"7d21af49\",\"components_switch_demo_index.md\":\"ef5e5e56\",\"composables_demo_usedict.md\":\"721d2814\",\"composables_demo_useselected.md\":\"3884ab5c\",\"guide_changelog.md\":\"9410ea4e\",\"guide_start.md\":\"bf01419b\",\"index.md\":\"a123241e\"}")</script>
+    <script type="module" async src="/vue-dictionary/assets/app.bda6e4b1.js"></script>
     
   </body>
 </html>
