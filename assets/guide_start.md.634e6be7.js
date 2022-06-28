@@ -1,1 +1,0 @@
-import{_ as e,a,o as r,b as o,e as n,f as s}from"./app.68553b85.js";const h='{"title":"Start","description":"","frontmatter":{"title":"Start"},"headers":[],"relativePath":"guide/start.md"}',c={};function d(p,_,l,i,m,f){const t=a("markdown");return r(),o("div",null,[n("p",null,[s(t,{path:"/../README.md"})])])}var k=e(c,[["render",d]]);export{h as __pageData,k as default};
