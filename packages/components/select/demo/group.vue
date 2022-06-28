@@ -9,6 +9,7 @@ const value = ref("");
 const dictData = [
   {
     label: "fruits",
+    value: "fruits",
     children: [
       { label: "apple", value: "1" },
       { label: "banana", value: "2" },
@@ -17,11 +18,11 @@ const dictData = [
   },
   {
     label: "vegetables",
-    disabled: true,
+    value: "vegetables",
     children: [
-      { label: "avocado", value: "3" },
-      { label: "bean", value: "4" },
-      { label: "carrot", value: "5" }
+      { label: "avocado", value: "4" },
+      { label: "bean", value: "5" },
+      { label: "carrot", value: "6" }
     ]
   }
 ];

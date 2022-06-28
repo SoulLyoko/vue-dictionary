@@ -1,11 +1,11 @@
 <template>
-  <dict-cascader-panel v-model="value" :data="dictData"></dict-cascader-panel>
+  <dict-text v-model="value" :data="dictData" multile></dict-text>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue-demi";
 
-const value = ref("");
+const value = ref(["1", "2"]);
 const dictData = [
   {
     label: "fruits",

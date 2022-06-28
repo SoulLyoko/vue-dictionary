@@ -1,5 +1,5 @@
 <template>
-  <dict-cascader-panel v-model="value" :data="dictData"></dict-cascader-panel>
+  <dict-tree-select v-model="value" :data="dictData"></dict-tree-select>
 </template>
 
 <script setup lang="ts">

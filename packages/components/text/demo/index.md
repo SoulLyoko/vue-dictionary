@@ -1,4 +1,4 @@
-# Select
+# Text
 
 ## Basic
 
@@ -6,10 +6,10 @@
 ./basic
 :::
 
-## Disabled
+## Tree
 
 ::: demo
-./disabled
+./tree
 :::
 
 ## Multiple
@@ -18,18 +18,7 @@
 ./multiple
 :::
 
-## Cascader Panel
-
-::: demo
-./panel
-:::
-
 ## Props
-
-支持 el-cascader 所有参数和事件
-
-- [element-ui#cascader](https://element.eleme.cn/#/zh-CN/component/cascader#cascader-attributes)
-- [element-plus#cascader](https://element-plus.gitee.io/zh-CN/component/cascader.html#cascader-%E5%B1%9E%E6%80%A7)
 
 | 参数    | 说明     | 类型                    | 可选值 | 默认值 |
 | ------- | -------- | ----------------------- | ------ | ------ |

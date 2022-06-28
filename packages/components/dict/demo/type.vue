@@ -24,6 +24,7 @@ const typeDict = [
   { label: "checkbox", value: "checkbox" },
   { label: "switch", value: "switch" },
   { label: "cascader", value: "cascader" },
+  { label: "tree-select", value: "tree-select" },
   { label: "text", value: "text" }
 ];
 

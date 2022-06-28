@@ -37,7 +37,7 @@
 - [element-ui#checkbox](https://element.eleme.cn/#/zh-CN/component/checkbox#checkbox-group-attributes)
 - [element-plus#checkbox](https://element-plus.gitee.io/zh-CN/component/checkbox.html#checkbox-group-%E5%B1%9E%E6%80%A7)
 
-| 参数    | 说明                                      | 类型                    | 可选值 | 默认值 |
-| ------- | ----------------------------------------- | ----------------------- | ------ | ------ |
-| v-model | 绑定值                                    | string / number / array |
-| data    | 字典数据，可以是数组或返回 Promise 的函数 | array                   | -      | -      |
+| 参数    | 说明     | 类型                    | 可选值 | 默认值 |
+| ------- | -------- | ----------------------- | ------ | ------ |
+| v-model | 绑定值   | string / number / array |
+| data    | 字典数据 | array                   | -      | -      |

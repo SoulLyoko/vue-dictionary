@@ -1,4 +1,4 @@
-# Select
+# TreeSelect
 
 ## Basic
 
@@ -18,18 +18,17 @@
 ./multiple
 :::
 
-## Cascader Panel
+## Filterable
 
 ::: demo
-./panel
+./filterable
 :::
 
 ## Props
 
-支持 el-cascader 所有参数和事件
+支持 el-tree-select 所有参数和事件(仅支持 element-plus. element-ui 没有 tree-select 组件)
 
-- [element-ui#cascader](https://element.eleme.cn/#/zh-CN/component/cascader#cascader-attributes)
-- [element-plus#cascader](https://element-plus.gitee.io/zh-CN/component/cascader.html#cascader-%E5%B1%9E%E6%80%A7)
+- [element-plus#tree-select](https://element-plus.gitee.io/zh-CN/component/tree-select.html#treeselect-%E5%B1%9E%E6%80%A7)
 
 | 参数    | 说明     | 类型                    | 可选值 | 默认值 |
 | ------- | -------- | ----------------------- | ------ | ------ |
