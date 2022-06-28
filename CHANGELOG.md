@@ -1,3 +1,12 @@
+# [2.1.0](https://github.com/SoulLyoko/vue-dictionary/compare/v2.0.1...v2.1.0) (2022-06-28)
+
+
+### Features
+
+* tree-select ([c41a50b](https://github.com/SoulLyoko/vue-dictionary/commit/c41a50bad4055d60976f632d1deaf19c1746fbd1))
+
+
+
 ## [2.0.1](https://github.com/SoulLyoko/vue-dictionary/compare/v2.0.0...v2.0.1) (2022-06-27)
 
 
