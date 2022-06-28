@@ -5,7 +5,16 @@ import { defineComponent, computed } from "vue-demi";
 import { fullProps, fullEmits, useListeners } from "~/constants";
 import { useDict, usePropOption, useSelected } from "~/composables";
 import { h } from "~/utils";
-import { DictCascader, DictCascaderPanel, DictSelect, DictRadio, DictCheckbox, DictSwitch, DictText } from "../..";
+import {
+  DictCascader,
+  DictCascaderPanel,
+  DictSelect,
+  DictRadio,
+  DictCheckbox,
+  DictSwitch,
+  DictTreeSelect,
+  DictText
+} from "../..";
 
 export type DictProps = PropTypes<typeof dictProps>;
 export type DictEmits = typeof dictEmits;
@@ -27,6 +36,7 @@ export const VDict = defineComponent({
       radio: DictRadio,
       select: DictSelect,
       switch: DictSwitch,
+      "tree-select": DictTreeSelect,
       text: DictText
     };
 

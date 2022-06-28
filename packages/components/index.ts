@@ -5,9 +5,20 @@ export * from "./checkbox";
 export * from "./radio";
 export * from "./select";
 export * from "./switch";
+export * from "./tree-select";
 export * from "./text";
 
-import { VDict, DictCascader, DictCascaderPanel, DictCheckbox, DictRadio, DictSelect, DictSwitch, DictText } from ".";
+import {
+  VDict,
+  DictCascader,
+  DictCascaderPanel,
+  DictCheckbox,
+  DictRadio,
+  DictSelect,
+  DictSwitch,
+  DictTreeSelect,
+  DictText
+} from ".";
 
 export default {
   VDict,
@@ -17,5 +28,6 @@ export default {
   DictRadio,
   DictSelect,
   DictSwitch,
+  DictTreeSelect,
   DictText
 };
